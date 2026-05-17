@@ -1,0 +1,2280 @@
+<!-- Linha 1: Informa ao navegador que o arquivo usa HTML5. -->
+<!DOCTYPE html>
+<!-- Linha 2: Inicia o documento HTML e define o idioma da página. -->
+<html lang="pt-BR">
+<!-- Linha 3: Inicia a área de configurações do documento. -->
+<head>
+  <!-- Linha 4: Define a codificação de caracteres para aceitar acentos. -->
+  <meta charset="UTF-8">
+  <!-- Linha 5: Ajusta a visualização do site em telas menores. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Linha 6: Define o título que aparece na aba do navegador. -->
+  <title>CineCatálogo</title>
+
+  <!-- Linha 7: Conecta o arquivo style.css ao HTML para aplicar os estilos externos. -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Linha 8: Inicia o bloco de CSS interno do site. -->
+  <style>
+    /* Linha 9: Inicia a estilização do seletor *. */
+    * {
+      /* Linha 10: Define a propriedade CSS box-sizing. */
+      box-sizing: border-box;
+      /* Linha 11: Define a propriedade CSS margin. */
+      margin: 0;
+      /* Linha 12: Define a propriedade CSS padding. */
+      padding: 0;
+    /* Linha 13: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 15: Inicia a estilização do seletor :root. */
+    :root {
+      /* Linha 16: Define a propriedade CSS --azul-card. */
+      --azul-card: #101b33;
+      /* Linha 17: Define a propriedade CSS --azul-medio. */
+      --azul-medio: #1d4ed8;
+      /* Linha 18: Define a propriedade CSS --azul-claro. */
+      --azul-claro: #60a5fa;
+      /* Linha 19: Define a propriedade CSS --vermelho. */
+      --vermelho: #ef4444;
+      /* Linha 20: Define a propriedade CSS --texto. */
+      --texto: #f8fafc;
+      /* Linha 21: Define a propriedade CSS --texto-suave. */
+      --texto-suave: #cbd5e1;
+      /* Linha 22: Define a propriedade CSS --borda. */
+      --borda: rgba(148, 163, 184, 0.22);
+    /* Linha 23: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 25: Inicia a estilização do seletor body. */
+    body {
+      /* Linha 26: Define a propriedade CSS font-family. */
+      font-family: Arial, Helvetica, sans-serif;
+      /* Linha 27: Define a propriedade CSS min-height. */
+      min-height: 100vh;
+      /* Linha 28: Define a propriedade CSS color. */
+      color: var(--texto);
+      /* Linha 29: Define a propriedade CSS background. */
+      background:
+        /* Linha 30: Mantém uma regra de estilo da página. */
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.35), transparent 36%),
+        /* Linha 31: Mantém uma regra de estilo da página. */
+        radial-gradient(circle at top right, rgba(239, 68, 68, 0.22), transparent 32%),
+        /* Linha 32: Mantém uma regra de estilo da página. */
+        linear-gradient(135deg, #020617, #0f172a 55%, #111827);
+    /* Linha 33: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 35: Inicia a estilização do seletor header. */
+    header {
+      /* Linha 36: Define a propriedade CSS position. */
+      position: sticky;
+      /* Linha 37: Define a propriedade CSS top. */
+      top: 0;
+      /* Linha 38: Define a propriedade CSS z-index. */
+      z-index: 10;
+      /* Linha 39: Define a propriedade CSS backdrop-filter. */
+      backdrop-filter: blur(16px);
+      /* Linha 40: Define a propriedade CSS background. */
+      background: rgba(2, 6, 23, 0.86);
+      /* Linha 41: Define a propriedade CSS border-bottom. */
+      border-bottom: 1px solid var(--borda);
+      /* Linha 42: Define a propriedade CSS padding. */
+      padding: 18px 7%;
+      /* Linha 43: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 44: Define a propriedade CSS justify-content. */
+      justify-content: space-between;
+      /* Linha 45: Define a propriedade CSS align-items. */
+      align-items: center;
+      /* Linha 46: Define a propriedade CSS gap. */
+      gap: 18px;
+      /* Linha 47: Define a propriedade CSS flex-wrap. */
+      flex-wrap: wrap;
+    /* Linha 48: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 50: Inicia a estilização do seletor .logo-area. */
+    .logo-area {
+      /* Linha 51: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 52: Define a propriedade CSS align-items. */
+      align-items: center;
+      /* Linha 53: Define a propriedade CSS gap. */
+      gap: 14px;
+    /* Linha 54: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 56: Inicia a estilização do seletor .logo. */
+    .logo {
+      /* Linha 57: Define a propriedade CSS width. */
+      width: 54px;
+      /* Linha 58: Define a propriedade CSS height. */
+      height: 54px;
+      /* Linha 59: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 60: Define a propriedade CSS place-items. */
+      place-items: center;
+      /* Linha 61: Define a propriedade CSS border-radius. */
+      border-radius: 18px;
+      /* Linha 62: Define a propriedade CSS background. */
+      background: linear-gradient(135deg, var(--vermelho), var(--azul-medio));
+      /* Linha 63: Define a propriedade CSS font-size. */
+      font-size: 1.7rem;
+      /* Linha 64: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    /* Linha 65: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 67: Inicia a estilização do seletor h1. */
+    h1 {
+      /* Linha 68: Define a propriedade CSS font-size. */
+      font-size: 2rem;
+      /* Linha 69: Define a propriedade CSS letter-spacing. */
+      letter-spacing: 1px;
+    /* Linha 70: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 72: Inicia a estilização do seletor header p. */
+    header p {
+      /* Linha 73: Define a propriedade CSS color. */
+      color: var(--texto-suave);
+      /* Linha 74: Define a propriedade CSS margin-top. */
+      margin-top: 3px;
+      /* Linha 75: Define a propriedade CSS font-size. */
+      font-size: 0.96rem;
+    /* Linha 76: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 78: Inicia a estilização do seletor nav. */
+    nav {
+      /* Linha 79: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 80: Define a propriedade CSS gap. */
+      gap: 10px;
+      /* Linha 81: Define a propriedade CSS flex-wrap. */
+      flex-wrap: wrap;
+    /* Linha 82: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 84: Inicia a estilização do seletor button. */
+    button {
+      /* Linha 85: Define a propriedade CSS border. */
+      border: none;
+      /* Linha 86: Define a propriedade CSS border-radius. */
+      border-radius: 999px;
+      /* Linha 87: Define a propriedade CSS padding. */
+      padding: 12px 18px;
+      /* Linha 88: Define a propriedade CSS cursor. */
+      cursor: pointer;
+      /* Linha 89: Define a propriedade CSS font-weight. */
+      font-weight: 700;
+      /* Linha 90: Define a propriedade CSS background. */
+      background: #e5e7eb;
+      /* Linha 91: Define a propriedade CSS color. */
+      color: #111827;
+      /* Linha 92: Define a propriedade CSS transition. */
+      transition: 0.22s;
+    /* Linha 93: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 95: Inicia a estilização do seletor button:hover. */
+    button:hover {
+      /* Linha 96: Define a propriedade CSS transform. */
+      transform: translateY(-2px);
+      /* Linha 97: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+    /* Linha 98: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 100: Mantém uma regra de estilo da página. */
+    button.ativo,
+    /* Linha 101: Inicia a estilização do seletor .btn-vermelho. */
+    .btn-vermelho {
+      /* Linha 102: Define a propriedade CSS color. */
+      color: #fff;
+      /* Linha 103: Define a propriedade CSS background. */
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    /* Linha 104: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 106: Inicia a estilização do seletor .btn-azul. */
+    .btn-azul {
+      /* Linha 107: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 108: Define a propriedade CSS background. */
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    /* Linha 109: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 111: Inicia a estilização do seletor .btn-neutro. */
+    .btn-neutro {
+      /* Linha 112: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 113: Define a propriedade CSS background. */
+      background: #334155;
+    /* Linha 114: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 116: Inicia a estilização do seletor main. */
+    main {
+      /* Linha 117: Define a propriedade CSS padding. */
+      padding: 36px 7%;
+    /* Linha 118: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 120: Inicia a estilização do seletor .hero. */
+    .hero {
+      /* Linha 121: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 122: Define a propriedade CSS grid-template-columns. */
+      grid-template-columns: 1.03fr 0.97fr;
+      /* Linha 123: Define a propriedade CSS gap. */
+      gap: 28px;
+      /* Linha 124: Define a propriedade CSS align-items. */
+      align-items: stretch;
+    /* Linha 125: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 127: Inicia a estilização do seletor .caixa. */
+    .caixa {
+      /* Linha 128: Define a propriedade CSS background. */
+      background: rgba(16, 27, 51, 0.88);
+      /* Linha 129: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 130: Define a propriedade CSS border-radius. */
+      border-radius: 28px;
+      /* Linha 131: Define a propriedade CSS padding. */
+      padding: 30px;
+      /* Linha 132: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
+    /* Linha 133: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 135: Inicia a estilização do seletor .hero-principal. */
+    .hero-principal {
+      /* Linha 136: Define a propriedade CSS position. */
+      position: relative;
+      /* Linha 137: Define a propriedade CSS overflow. */
+      overflow: hidden;
+      /* Linha 138: Define a propriedade CSS min-height. */
+      min-height: 520px;
+      /* Linha 139: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 140: Define a propriedade CSS flex-direction. */
+      flex-direction: column;
+      /* Linha 141: Define a propriedade CSS justify-content. */
+      justify-content: center;
+      /* Linha 142: Define a propriedade CSS background. */
+      background:
+        /* Linha 143: Mantém uma regra de estilo da página. */
+        linear-gradient(135deg, rgba(16, 27, 51, 0.96), rgba(16, 27, 51, 0.80)),
+        /* Linha 144: Define a propriedade CSS url("https. */
+        url("https://image.tmdb.org/t/p/w1280/8rpDcsfLJypbO6vREc0547VKqEv.jpg");
+      /* Linha 145: Define a propriedade CSS background-size. */
+      background-size: cover;
+      /* Linha 146: Define a propriedade CSS background-position. */
+      background-position: center;
+    /* Linha 147: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 149: Inicia a estilização do seletor .hero-principal::after. */
+    .hero-principal::after {
+      /* Linha 150: Define a propriedade CSS content. */
+      content: "";
+      /* Linha 151: Define a propriedade CSS position. */
+      position: absolute;
+      /* Linha 152: Define a propriedade CSS right. */
+      right: -110px;
+      /* Linha 153: Define a propriedade CSS bottom. */
+      bottom: -140px;
+      /* Linha 154: Define a propriedade CSS width. */
+      width: 360px;
+      /* Linha 155: Define a propriedade CSS height. */
+      height: 360px;
+      /* Linha 156: Define a propriedade CSS border-radius. */
+      border-radius: 50%;
+      /* Linha 157: Define a propriedade CSS background. */
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.35), transparent 65%);
+    /* Linha 158: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 160: Inicia a estilização do seletor .tag. */
+    .tag {
+      /* Linha 161: Define a propriedade CSS width. */
+      width: fit-content;
+      /* Linha 162: Define a propriedade CSS background. */
+      background: rgba(96, 165, 250, 0.16);
+      /* Linha 163: Define a propriedade CSS color. */
+      color: #bfdbfe;
+      /* Linha 164: Define a propriedade CSS border. */
+      border: 1px solid rgba(147, 197, 253, 0.32);
+      /* Linha 165: Define a propriedade CSS padding. */
+      padding: 8px 13px;
+      /* Linha 166: Define a propriedade CSS border-radius. */
+      border-radius: 999px;
+      /* Linha 167: Define a propriedade CSS display. */
+      display: inline-block;
+      /* Linha 168: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 16px;
+      /* Linha 169: Define a propriedade CSS font-size. */
+      font-size: 0.88rem;
+      /* Linha 170: Define a propriedade CSS font-weight. */
+      font-weight: bold;
+    /* Linha 171: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 173: Inicia a estilização do seletor h2. */
+    h2 {
+      /* Linha 174: Define a propriedade CSS color. */
+      color: #eff6ff;
+      /* Linha 175: Define a propriedade CSS font-size. */
+      font-size: clamp(2rem, 4vw, 4rem);
+      /* Linha 176: Define a propriedade CSS line-height. */
+      line-height: 1.05;
+      /* Linha 177: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 16px;
+    /* Linha 178: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 180: Inicia a estilização do seletor h3. */
+    h3 {
+      /* Linha 181: Define a propriedade CSS color. */
+      color: #bfdbfe;
+      /* Linha 182: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 12px;
+    /* Linha 183: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 185: Inicia a estilização do seletor p. */
+    p {
+      /* Linha 186: Define a propriedade CSS line-height. */
+      line-height: 1.7;
+    /* Linha 187: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 189: Inicia a estilização do seletor .hero p. */
+    .hero p {
+      /* Linha 190: Define a propriedade CSS max-width. */
+      max-width: 680px;
+      /* Linha 191: Define a propriedade CSS color. */
+      color: #dbeafe;
+      /* Linha 192: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 22px;
+      /* Linha 193: Define a propriedade CSS font-size. */
+      font-size: 1.05rem;
+    /* Linha 194: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 196: Inicia a estilização do seletor .hero-acoes. */
+    .hero-acoes {
+      /* Linha 197: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 198: Define a propriedade CSS gap. */
+      gap: 12px;
+      /* Linha 199: Define a propriedade CSS flex-wrap. */
+      flex-wrap: wrap;
+      /* Linha 200: Define a propriedade CSS position. */
+      position: relative;
+      /* Linha 201: Define a propriedade CSS z-index. */
+      z-index: 1;
+    /* Linha 202: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 204: Inicia a estilização do seletor .vitrine-home. */
+    .vitrine-home {
+      /* Linha 205: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 206: Define a propriedade CSS grid-template-columns. */
+      grid-template-columns: 1.1fr 0.9fr;
+      /* Linha 207: Define a propriedade CSS gap. */
+      gap: 16px;
+      /* Linha 208: Define a propriedade CSS min-height. */
+      min-height: 520px;
+    /* Linha 209: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 211: Inicia a estilização do seletor .vitrine-principal. */
+    .vitrine-principal {
+      /* Linha 212: Define a propriedade CSS position. */
+      position: relative;
+      /* Linha 213: Define a propriedade CSS overflow. */
+      overflow: hidden;
+      /* Linha 214: Define a propriedade CSS border-radius. */
+      border-radius: 28px;
+      /* Linha 215: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 216: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
+      /* Linha 217: Define a propriedade CSS min-height. */
+      min-height: 520px;
+      /* Linha 218: Define a propriedade CSS cursor. */
+      cursor: pointer;
+      /* Linha 219: Define a propriedade CSS background. */
+      background: #020617;
+    /* Linha 220: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 222: Inicia a estilização do seletor .vitrine-principal img. */
+    .vitrine-principal img {
+      /* Linha 223: Define a propriedade CSS width. */
+      width: 100%;
+      /* Linha 224: Define a propriedade CSS height. */
+      height: 100%;
+      /* Linha 225: Define a propriedade CSS object-fit. */
+      object-fit: cover;
+      /* Linha 226: Define a propriedade CSS display. */
+      display: block;
+      /* Linha 227: Define a propriedade CSS transition. */
+      transition: 0.35s;
+    /* Linha 228: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 230: Define a propriedade CSS .vitrine-principal. */
+    .vitrine-principal:hover img,
+    /* Linha 231: Inicia a estilização do seletor .mini-poster:hover img. */
+    .mini-poster:hover img {
+      /* Linha 232: Define a propriedade CSS transform. */
+      transform: scale(1.06);
+    /* Linha 233: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 235: Inicia a estilização do seletor .vitrine-coluna. */
+    .vitrine-coluna {
+      /* Linha 236: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 237: Define a propriedade CSS grid-template-rows. */
+      grid-template-rows: 1fr 1fr;
+      /* Linha 238: Define a propriedade CSS gap. */
+      gap: 16px;
+    /* Linha 239: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 241: Inicia a estilização do seletor .mini-poster. */
+    .mini-poster {
+      /* Linha 242: Define a propriedade CSS position. */
+      position: relative;
+      /* Linha 243: Define a propriedade CSS overflow. */
+      overflow: hidden;
+      /* Linha 244: Define a propriedade CSS border-radius. */
+      border-radius: 24px;
+      /* Linha 245: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 246: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.34);
+      /* Linha 247: Define a propriedade CSS cursor. */
+      cursor: pointer;
+      /* Linha 248: Define a propriedade CSS background. */
+      background: #020617;
+      /* Linha 249: Define a propriedade CSS min-height. */
+      min-height: 250px;
+    /* Linha 250: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 252: Inicia a estilização do seletor .mini-poster img. */
+    .mini-poster img {
+      /* Linha 253: Define a propriedade CSS width. */
+      width: 100%;
+      /* Linha 254: Define a propriedade CSS height. */
+      height: 100%;
+      /* Linha 255: Define a propriedade CSS object-fit. */
+      object-fit: cover;
+      /* Linha 256: Define a propriedade CSS display. */
+      display: block;
+      /* Linha 257: Define a propriedade CSS transition. */
+      transition: 0.35s;
+    /* Linha 258: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 260: Inicia a estilização do seletor .vitrine-info. */
+    .vitrine-info {
+      /* Linha 261: Define a propriedade CSS position. */
+      position: absolute;
+      /* Linha 262: Define a propriedade CSS left. */
+      left: 0;
+      /* Linha 263: Define a propriedade CSS right. */
+      right: 0;
+      /* Linha 264: Define a propriedade CSS bottom. */
+      bottom: 0;
+      /* Linha 265: Define a propriedade CSS padding. */
+      padding: 18px;
+      /* Linha 266: Define a propriedade CSS background. */
+      background: linear-gradient(transparent, rgba(2, 6, 23, 0.96));
+    /* Linha 267: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 269: Inicia a estilização do seletor .selo. */
+    .selo {
+      /* Linha 270: Define a propriedade CSS display. */
+      display: inline-block;
+      /* Linha 271: Define a propriedade CSS padding. */
+      padding: 6px 10px;
+      /* Linha 272: Define a propriedade CSS font-size. */
+      font-size: 0.78rem;
+      /* Linha 273: Define a propriedade CSS font-weight. */
+      font-weight: 700;
+      /* Linha 274: Define a propriedade CSS border-radius. */
+      border-radius: 999px;
+      /* Linha 275: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 276: Define a propriedade CSS background. */
+      background: linear-gradient(135deg, #ef4444, #1d4ed8);
+      /* Linha 277: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 10px;
+    /* Linha 278: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 280: Inicia a estilização do seletor .vitrine-info strong. */
+    .vitrine-info strong {
+      /* Linha 281: Define a propriedade CSS display. */
+      display: block;
+      /* Linha 282: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 283: Define a propriedade CSS font-size. */
+      font-size: 1.05rem;
+      /* Linha 284: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 4px;
+    /* Linha 285: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 287: Inicia a estilização do seletor .vitrine-principal .vitrine-info strong. */
+    .vitrine-principal .vitrine-info strong {
+      /* Linha 288: Define a propriedade CSS font-size. */
+      font-size: 1.45rem;
+    /* Linha 289: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 291: Inicia a estilização do seletor .vitrine-info span. */
+    .vitrine-info span {
+      /* Linha 292: Define a propriedade CSS color. */
+      color: #cbd5e1;
+      /* Linha 293: Define a propriedade CSS font-size. */
+      font-size: 0.9rem;
+    /* Linha 294: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 296: Inicia a estilização do seletor .secao-em-alta. */
+    .secao-em-alta {
+      /* Linha 297: Define a propriedade CSS margin-top. */
+      margin-top: 28px;
+    /* Linha 298: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 300: Inicia a estilização do seletor .topo-secao. */
+    .topo-secao {
+      /* Linha 301: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 302: Define a propriedade CSS justify-content. */
+      justify-content: space-between;
+      /* Linha 303: Define a propriedade CSS align-items. */
+      align-items: center;
+      /* Linha 304: Define a propriedade CSS gap. */
+      gap: 14px;
+      /* Linha 305: Define a propriedade CSS flex-wrap. */
+      flex-wrap: wrap;
+      /* Linha 306: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 18px;
+    /* Linha 307: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 309: Inicia a estilização do seletor .topo-secao h2. */
+    .topo-secao h2 {
+      /* Linha 310: Define a propriedade CSS font-size. */
+      font-size: 1.8rem;
+      /* Linha 311: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 0;
+    /* Linha 312: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 314: Inicia a estilização do seletor .form-busca. */
+    .form-busca {
+      /* Linha 315: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 316: Define a propriedade CSS grid-template-columns. */
+      grid-template-columns: 1fr auto;
+      /* Linha 317: Define a propriedade CSS gap. */
+      gap: 12px;
+      /* Linha 318: Define a propriedade CSS margin. */
+      margin: 24px 0;
+    /* Linha 319: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 321: Inicia a estilização do seletor .form-busca input. */
+    .form-busca input {
+      /* Linha 322: Define a propriedade CSS min-width. */
+      min-width: 220px;
+      /* Linha 323: Define a propriedade CSS padding. */
+      padding: 15px 17px;
+      /* Linha 324: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 325: Define a propriedade CSS border-radius. */
+      border-radius: 999px;
+      /* Linha 326: Define a propriedade CSS outline. */
+      outline: none;
+      /* Linha 327: Define a propriedade CSS font-size. */
+      font-size: 1rem;
+      /* Linha 328: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 329: Define a propriedade CSS background. */
+      background: rgba(2, 6, 23, 0.58);
+    /* Linha 330: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 332: Inicia a estilização do seletor .form-busca input::placeholder. */
+    .form-busca input::placeholder {
+      /* Linha 333: Define a propriedade CSS color. */
+      color: #94a3b8;
+    /* Linha 334: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 336: Inicia a estilização do seletor .filtros. */
+    .filtros {
+      /* Linha 337: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 338: Define a propriedade CSS gap. */
+      gap: 10px;
+      /* Linha 339: Define a propriedade CSS flex-wrap. */
+      flex-wrap: wrap;
+      /* Linha 340: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 26px;
+    /* Linha 341: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 343: Inicia a estilização do seletor .filtro-chip. */
+    .filtro-chip {
+      /* Linha 344: Define a propriedade CSS border. */
+      border: 1px solid rgba(147, 197, 253, 0.22);
+      /* Linha 345: Define a propriedade CSS background. */
+      background: rgba(96, 165, 250, 0.12);
+      /* Linha 346: Define a propriedade CSS color. */
+      color: #dbeafe;
+      /* Linha 347: Define a propriedade CSS padding. */
+      padding: 11px 16px;
+      /* Linha 348: Define a propriedade CSS border-radius. */
+      border-radius: 999px;
+      /* Linha 349: Define a propriedade CSS font-size. */
+      font-size: 0.94rem;
+      /* Linha 350: Define a propriedade CSS cursor. */
+      cursor: pointer;
+      /* Linha 351: Define a propriedade CSS transition. */
+      transition: 0.22s;
+      /* Linha 352: Define a propriedade CSS font-weight. */
+      font-weight: 700;
+    /* Linha 353: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 355: Define a propriedade CSS .filtro-chip. */
+    .filtro-chip:hover,
+    /* Linha 356: Inicia a estilização do seletor .filtro-chip.ativo. */
+    .filtro-chip.ativo {
+      /* Linha 357: Define a propriedade CSS background. */
+      background: linear-gradient(135deg, #2563eb, #ef4444);
+      /* Linha 358: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 359: Define a propriedade CSS transform. */
+      transform: translateY(-2px);
+      /* Linha 360: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+    /* Linha 361: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 363: Inicia a estilização do seletor .grade. */
+    .grade {
+      /* Linha 364: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 365: Define a propriedade CSS grid-template-columns. */
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      /* Linha 366: Define a propriedade CSS gap. */
+      gap: 22px;
+    /* Linha 367: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 369: Inicia a estilização do seletor .grade-home. */
+    .grade-home {
+      /* Linha 370: Define a propriedade CSS grid-template-columns. */
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Linha 371: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 373: Inicia a estilização do seletor .card. */
+    .card {
+      /* Linha 374: Define a propriedade CSS position. */
+      position: relative;
+      /* Linha 375: Define a propriedade CSS background. */
+      background: rgba(15, 23, 42, 0.92);
+      /* Linha 376: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 377: Define a propriedade CSS border-radius. */
+      border-radius: 24px;
+      /* Linha 378: Define a propriedade CSS overflow. */
+      overflow: hidden;
+      /* Linha 379: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+      /* Linha 380: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 381: Define a propriedade CSS flex-direction. */
+      flex-direction: column;
+      /* Linha 382: Define a propriedade CSS transition. */
+      transition: 0.25s;
+    /* Linha 383: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 385: Inicia a estilização do seletor .card:hover. */
+    .card:hover {
+      /* Linha 386: Define a propriedade CSS transform. */
+      transform: translateY(-6px);
+      /* Linha 387: Define a propriedade CSS border-color. */
+      border-color: rgba(96, 165, 250, 0.55);
+    /* Linha 388: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 390: Inicia a estilização do seletor .card img. */
+    .card img {
+      /* Linha 391: Define a propriedade CSS width. */
+      width: 100%;
+      /* Linha 392: Define a propriedade CSS height. */
+      height: 330px;
+      /* Linha 393: Define a propriedade CSS object-fit. */
+      object-fit: cover;
+      /* Linha 394: Define a propriedade CSS background. */
+      background: #334155;
+    /* Linha 395: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 397: Inicia a estilização do seletor .grade-home .card img. */
+    .grade-home .card img {
+      /* Linha 398: Define a propriedade CSS height. */
+      height: 270px;
+    /* Linha 399: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 401: Inicia a estilização do seletor .ano-badge. */
+    .ano-badge {
+      /* Linha 402: Define a propriedade CSS position. */
+      position: absolute;
+      /* Linha 403: Define a propriedade CSS top. */
+      top: 13px;
+      /* Linha 404: Define a propriedade CSS left. */
+      left: 13px;
+      /* Linha 405: Define a propriedade CSS background. */
+      background: rgba(2, 6, 23, 0.84);
+      /* Linha 406: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 407: Define a propriedade CSS color. */
+      color: #dbeafe;
+      /* Linha 408: Define a propriedade CSS border-radius. */
+      border-radius: 999px;
+      /* Linha 409: Define a propriedade CSS padding. */
+      padding: 7px 11px;
+      /* Linha 410: Define a propriedade CSS font-size. */
+      font-size: 0.82rem;
+      /* Linha 411: Define a propriedade CSS font-weight. */
+      font-weight: bold;
+    /* Linha 412: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 414: Inicia a estilização do seletor .card-conteudo. */
+    .card-conteudo {
+      /* Linha 415: Define a propriedade CSS padding. */
+      padding: 17px;
+      /* Linha 416: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 417: Define a propriedade CSS flex-direction. */
+      flex-direction: column;
+      /* Linha 418: Define a propriedade CSS gap. */
+      gap: 10px;
+      /* Linha 419: Define a propriedade CSS flex. */
+      flex: 1;
+    /* Linha 420: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 422: Inicia a estilização do seletor .card h3. */
+    .card h3 {
+      /* Linha 423: Define a propriedade CSS color. */
+      color: #eff6ff;
+      /* Linha 424: Define a propriedade CSS font-size. */
+      font-size: 1.18rem;
+      /* Linha 425: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 0;
+    /* Linha 426: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 428: Inicia a estilização do seletor .generos. */
+    .generos {
+      /* Linha 429: Define a propriedade CSS font-size. */
+      font-size: 0.9rem;
+      /* Linha 430: Define a propriedade CSS color. */
+      color: #cbd5e1;
+    /* Linha 431: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 433: Inicia a estilização do seletor .nota. */
+    .nota {
+      /* Linha 434: Define a propriedade CSS color. */
+      color: #fde68a;
+      /* Linha 435: Define a propriedade CSS font-weight. */
+      font-weight: bold;
+    /* Linha 436: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 438: Inicia a estilização do seletor .botoes-card. */
+    .botoes-card {
+      /* Linha 439: Define a propriedade CSS display. */
+      display: flex;
+      /* Linha 440: Define a propriedade CSS gap. */
+      gap: 8px;
+      /* Linha 441: Define a propriedade CSS flex-wrap. */
+      flex-wrap: wrap;
+      /* Linha 442: Define a propriedade CSS margin-top. */
+      margin-top: auto;
+    /* Linha 443: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 445: Inicia a estilização do seletor .botoes-card button. */
+    .botoes-card button {
+      /* Linha 446: Define a propriedade CSS flex. */
+      flex: 1;
+      /* Linha 447: Define a propriedade CSS padding. */
+      padding: 10px;
+      /* Linha 448: Define a propriedade CSS font-size. */
+      font-size: 0.85rem;
+    /* Linha 449: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 451: Inicia a estilização do seletor .detalhes. */
+    .detalhes {
+      /* Linha 452: Define a propriedade CSS display. */
+      display: grid;
+      /* Linha 453: Define a propriedade CSS grid-template-columns. */
+      grid-template-columns: 310px 1fr;
+      /* Linha 454: Define a propriedade CSS gap. */
+      gap: 30px;
+      /* Linha 455: Define a propriedade CSS background. */
+      background: rgba(16, 27, 51, 0.9);
+      /* Linha 456: Define a propriedade CSS border. */
+      border: 1px solid var(--borda);
+      /* Linha 457: Define a propriedade CSS padding. */
+      padding: 30px;
+      /* Linha 458: Define a propriedade CSS border-radius. */
+      border-radius: 28px;
+      /* Linha 459: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
+    /* Linha 460: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 462: Inicia a estilização do seletor .detalhes img. */
+    .detalhes img {
+      /* Linha 463: Define a propriedade CSS width. */
+      width: 100%;
+      /* Linha 464: Define a propriedade CSS border-radius. */
+      border-radius: 22px;
+      /* Linha 465: Define a propriedade CSS box-shadow. */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.38);
+    /* Linha 466: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 468: Inicia a estilização do seletor .detalhes h2. */
+    .detalhes h2 {
+      /* Linha 469: Define a propriedade CSS font-size. */
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    /* Linha 470: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 472: Inicia a estilização do seletor .detalhes p. */
+    .detalhes p {
+      /* Linha 473: Define a propriedade CSS margin-bottom. */
+      margin-bottom: 11px;
+      /* Linha 474: Define a propriedade CSS color. */
+      color: #e5e7eb;
+    /* Linha 475: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 477: Inicia a estilização do seletor .aviso. */
+    .aviso {
+      /* Linha 478: Define a propriedade CSS background. */
+      background: rgba(127, 29, 29, 0.85);
+      /* Linha 479: Define a propriedade CSS color. */
+      color: white;
+      /* Linha 480: Define a propriedade CSS padding. */
+      padding: 16px;
+      /* Linha 481: Define a propriedade CSS border-radius. */
+      border-radius: 16px;
+    /* Linha 482: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 484: Inicia a estilização do seletor footer. */
+    footer {
+      /* Linha 485: Define a propriedade CSS text-align. */
+      text-align: center;
+      /* Linha 486: Define a propriedade CSS padding. */
+      padding: 24px 7%;
+      /* Linha 487: Define a propriedade CSS color. */
+      color: #cbd5e1;
+      /* Linha 488: Define a propriedade CSS border-top. */
+      border-top: 1px solid var(--borda);
+      /* Linha 489: Define a propriedade CSS margin-top. */
+      margin-top: 34px;
+      /* Linha 490: Define a propriedade CSS background. */
+      background: rgba(2, 6, 23, 0.55);
+    /* Linha 491: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 493: Inicia a estilização do seletor footer strong. */
+    footer strong {
+      /* Linha 494: Define a propriedade CSS color. */
+      color: #fca5a5;
+    /* Linha 495: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 497: Inicia a estilização do seletor @media (max-width: 950px). */
+    @media (max-width: 950px) {
+      /* Linha 498: Mantém uma regra de estilo da página. */
+      .hero,
+      /* Linha 499: Mantém uma regra de estilo da página. */
+      .detalhes,
+      /* Linha 500: Inicia a estilização do seletor .vitrine-home. */
+      .vitrine-home {
+        /* Linha 501: Define a propriedade CSS grid-template-columns. */
+        grid-template-columns: 1fr;
+      /* Linha 502: Fecha o bloco de estilização atual. */
+      }
+
+      /* Linha 504: Inicia a estilização do seletor .vitrine-coluna. */
+      .vitrine-coluna {
+        /* Linha 505: Define a propriedade CSS grid-template-rows. */
+        grid-template-rows: auto;
+        /* Linha 506: Define a propriedade CSS grid-template-columns. */
+        grid-template-columns: 1fr 1fr;
+      /* Linha 507: Fecha o bloco de estilização atual. */
+      }
+
+      /* Linha 509: Inicia a estilização do seletor .form-busca. */
+      .form-busca {
+        /* Linha 510: Define a propriedade CSS grid-template-columns. */
+        grid-template-columns: 1fr;
+      /* Linha 511: Fecha o bloco de estilização atual. */
+      }
+
+      /* Linha 513: Inicia a estilização do seletor header. */
+      header {
+        /* Linha 514: Define a propriedade CSS align-items. */
+        align-items: flex-start;
+      /* Linha 515: Fecha o bloco de estilização atual. */
+      }
+    /* Linha 516: Fecha o bloco de estilização atual. */
+    }
+
+    /* Linha 518: Inicia a estilização do seletor @media (max-width: 600px). */
+    @media (max-width: 600px) {
+      /* Linha 519: Inicia a estilização do seletor .vitrine-coluna. */
+      .vitrine-coluna {
+        /* Linha 520: Define a propriedade CSS grid-template-columns. */
+        grid-template-columns: 1fr;
+      /* Linha 521: Fecha o bloco de estilização atual. */
+      }
+    /* Linha 522: Fecha o bloco de estilização atual. */
+    }
+  /* Linha 523: Mantém uma regra de estilo da página. */
+  </style>
+<!-- Linha 524: Fecha a área de configurações do documento. -->
+</head>
+
+<!-- Linha 526: Inicia o conteúdo visível da página. -->
+<body>
+  <!-- Linha 527: Inicia a área de configurações do documento. -->
+  <header>
+    <!-- Linha 528: Cria uma divisão para organizar elementos na página. -->
+    <div class="logo-area">
+      <!-- Linha 529: Cria uma divisão para organizar elementos na página. -->
+      <div class="logo">🎬</div>
+      <!-- Linha 530: Cria uma divisão para organizar elementos na página. -->
+      <div>
+        <!-- Linha 531: Cria o título principal do site. -->
+        <h1>CineCatálogo</h1>
+        <!-- Linha 532: Cria um parágrafo de texto. -->
+        <p>Assista seu filme preferido de onde e a hora que você quiser.</p>
+      <!-- Linha 533: Fecha uma divisão da página. -->
+      </div>
+    <!-- Linha 534: Fecha uma divisão da página. -->
+    </div>
+
+    <!-- Linha 536: Inicia o menu de navegação. -->
+    <nav>
+      <!-- Linha 537: Cria um botão de navegação ou interação. -->
+      <button id="btnHome" class="ativo">Home</button>
+      <!-- Linha 538: Cria um botão de navegação ou interação. -->
+      <button id="btnCatalogo">Catálogo</button>
+      <!-- Linha 539: Cria um botão de navegação ou interação. -->
+      <button id="btnFavoritos">Favoritos</button>
+    <!-- Linha 540: Fecha o menu de navegação. -->
+    </nav>
+  <!-- Linha 541: Fecha a área de configurações do documento. -->
+  </header>
+
+  <!-- Linha 543: Cria a área principal onde o conteúdo será exibido pelo JavaScript. -->
+  <main id="app"></main>
+
+  <!-- Linha 545: Inicia o rodapé do site. -->
+  <footer>
+    <!-- Linha 546: Cria um parágrafo de texto. -->
+    <p>Desenvolvido por <strong>Thayná Andrade</strong></p>
+  <!-- Linha 547: Fecha o rodapé do site. -->
+  </footer>
+
+  <!-- Linha 549: Inicia o bloco de JavaScript interno do site. -->
+  <script>
+    // Linha 550: Cria uma constante usada no funcionamento do site.
+    const app = document.getElementById("app");
+    // Linha 551: Cria uma constante usada no funcionamento do site.
+    const btnHome = document.getElementById("btnHome");
+    // Linha 552: Cria uma constante usada no funcionamento do site.
+    const btnCatalogo = document.getElementById("btnCatalogo");
+    // Linha 553: Cria uma constante usada no funcionamento do site.
+    const btnFavoritos = document.getElementById("btnFavoritos");
+
+    // Linha 555: Cria uma variável que pode mudar durante a execução.
+    let filtroAtual = "todos";
+    // Linha 556: Cria uma variável que pode mudar durante a execução.
+    let listaAtual = [];
+
+    // Linha 558: Cria uma constante usada no funcionamento do site.
+    const catalogoAtual = [
+      // Linha 559: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 560: Executa uma instrução do JavaScript para controlar o site.
+        id: 1,
+        // Linha 561: Executa uma instrução do JavaScript para controlar o site.
+        name: "Duna: Parte Dois",
+        // Linha 562: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 563: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Ficção científica", "Aventura", "Drama"],
+        // Linha 564: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.6 },
+        // Linha 565: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg" },
+        // Linha 566: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Paul Atreides une forças com Chani e os Fremen enquanto busca vingança contra aqueles que destruíram sua família.",
+        // Linha 567: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 568: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 569: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2024-02-27"
+      // Linha 570: Fecha o bloco de código atual.
+      },
+      // Linha 571: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 572: Executa uma instrução do JavaScript para controlar o site.
+        id: 2,
+        // Linha 573: Executa uma instrução do JavaScript para controlar o site.
+        name: "Divertida Mente 2",
+        // Linha 574: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 575: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Animação", "Família", "Comédia"],
+        // Linha 576: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.0 },
+        // Linha 577: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" },
+        // Linha 578: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Riley entra na adolescência e novas emoções passam a dividir espaço com Alegria, Tristeza, Raiva, Medo e Nojinho.",
+        // Linha 579: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 580: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 581: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2024-06-12"
+      // Linha 582: Fecha o bloco de código atual.
+      },
+      // Linha 583: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 584: Executa uma instrução do JavaScript para controlar o site.
+        id: 3,
+        // Linha 585: Executa uma instrução do JavaScript para controlar o site.
+        name: "Oppenheimer",
+        // Linha 586: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 587: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Drama", "História", "Biografia"],
+        // Linha 588: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.4 },
+        // Linha 589: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" },
+        // Linha 590: Executa uma instrução do JavaScript para controlar o site.
+        summary: "A trajetória de J. Robert Oppenheimer e sua participação no desenvolvimento da bomba atômica durante a Segunda Guerra Mundial.",
+        // Linha 591: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 592: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 593: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2023-07-19"
+      // Linha 594: Fecha o bloco de código atual.
+      },
+      // Linha 595: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 596: Executa uma instrução do JavaScript para controlar o site.
+        id: 4,
+        // Linha 597: Executa uma instrução do JavaScript para controlar o site.
+        name: "Barbie",
+        // Linha 598: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 599: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Comédia", "Fantasia", "Aventura"],
+        // Linha 600: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 7.0 },
+        // Linha 601: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg" },
+        // Linha 602: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Barbie deixa a Barbielândia e parte para o mundo real em uma jornada de autoconhecimento.",
+        // Linha 603: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 604: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 605: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2023-07-19"
+      // Linha 606: Fecha o bloco de código atual.
+      },
+      // Linha 607: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 608: Executa uma instrução do JavaScript para controlar o site.
+        id: 5,
+        // Linha 609: Executa uma instrução do JavaScript para controlar o site.
+        name: "The Last of Us",
+        // Linha 610: Executa uma instrução do JavaScript para controlar o site.
+        type: "Série",
+        // Linha 611: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Drama", "Ação", "Pós-apocalíptico"],
+        // Linha 612: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.7 },
+        // Linha 613: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" },
+        // Linha 614: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Joel e Ellie atravessam os Estados Unidos após uma pandemia que destruiu a civilização.",
+        // Linha 615: Executa uma instrução do JavaScript para controlar o site.
+        status: "Em exibição",
+        // Linha 616: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 617: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2023-01-15"
+      // Linha 618: Fecha o bloco de código atual.
+      },
+      // Linha 619: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 620: Executa uma instrução do JavaScript para controlar o site.
+        id: 6,
+        // Linha 621: Executa uma instrução do JavaScript para controlar o site.
+        name: "Wandinha",
+        // Linha 622: Executa uma instrução do JavaScript para controlar o site.
+        type: "Série",
+        // Linha 623: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Fantasia", "Mistério", "Comédia"],
+        // Linha 624: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.1 },
+        // Linha 625: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/ooBR3qulC40ws0QkYBUAYFKmLRE.jpg" },
+        // Linha 626: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Wandinha Addams investiga mistérios sobrenaturais enquanto estuda na Escola Nunca Mais.",
+        // Linha 627: Executa uma instrução do JavaScript para controlar o site.
+        status: "Em exibição",
+        // Linha 628: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 629: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2022-11-23"
+      // Linha 630: Fecha o bloco de código atual.
+      },
+      // Linha 631: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 632: Executa uma instrução do JavaScript para controlar o site.
+        id: 7,
+        // Linha 633: Executa uma instrução do JavaScript para controlar o site.
+        name: "Round 6",
+        // Linha 634: Executa uma instrução do JavaScript para controlar o site.
+        type: "Série",
+        // Linha 635: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Drama", "Suspense", "Sobrevivência"],
+        // Linha 636: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.0 },
+        // Linha 637: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" },
+        // Linha 638: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Pessoas endividadas participam de jogos mortais em busca de um grande prêmio em dinheiro.",
+        // Linha 639: Executa uma instrução do JavaScript para controlar o site.
+        status: "Em exibição",
+        // Linha 640: Executa uma instrução do JavaScript para controlar o site.
+        language: "Korean",
+        // Linha 641: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2021-09-17"
+      // Linha 642: Fecha o bloco de código atual.
+      },
+      // Linha 643: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 644: Executa uma instrução do JavaScript para controlar o site.
+        id: 8,
+        // Linha 645: Executa uma instrução do JavaScript para controlar o site.
+        name: "House of the Dragon",
+        // Linha 646: Executa uma instrução do JavaScript para controlar o site.
+        type: "Série",
+        // Linha 647: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Fantasia", "Drama", "Ação"],
+        // Linha 648: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.4 },
+        // Linha 649: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/7QMsOTMUswlwxJP0rTTZfmz2tX2.jpg" },
+        // Linha 650: Executa uma instrução do JavaScript para controlar o site.
+        summary: "A história da Casa Targaryen, ambientada anos antes dos acontecimentos de Game of Thrones.",
+        // Linha 651: Executa uma instrução do JavaScript para controlar o site.
+        status: "Em exibição",
+        // Linha 652: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 653: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2022-08-21"
+      // Linha 654: Fecha o bloco de código atual.
+      },
+      // Linha 655: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 656: Executa uma instrução do JavaScript para controlar o site.
+        id: 9,
+        // Linha 657: Executa uma instrução do JavaScript para controlar o site.
+        name: "Avatar: O Caminho da Água",
+        // Linha 658: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 659: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Ficção científica", "Aventura", "Fantasia"],
+        // Linha 660: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 7.6 },
+        // Linha 661: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/mbYQLLluS651W89jO7MOZcLSCUw.jpg" },
+        // Linha 662: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Jake Sully vive com sua nova família em Pandora e precisa enfrentar uma antiga ameaça.",
+        // Linha 663: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 664: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 665: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2022-12-14"
+      // Linha 666: Fecha o bloco de código atual.
+      },
+      // Linha 667: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 668: Executa uma instrução do JavaScript para controlar o site.
+        id: 10,
+        // Linha 669: Executa uma instrução do JavaScript para controlar o site.
+        name: "Top Gun: Maverick",
+        // Linha 670: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 671: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Ação", "Drama"],
+        // Linha 672: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.2 },
+        // Linha 673: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg" },
+        // Linha 674: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Maverick retorna para treinar uma nova geração de pilotos em uma missão extremamente perigosa.",
+        // Linha 675: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 676: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 677: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2022-05-24"
+      // Linha 678: Fecha o bloco de código atual.
+      },
+      // Linha 679: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 680: Executa uma instrução do JavaScript para controlar o site.
+        id: 11,
+        // Linha 681: Executa uma instrução do JavaScript para controlar o site.
+        name: "Tudo em Todo Lugar ao Mesmo Tempo",
+        // Linha 682: Executa uma instrução do JavaScript para controlar o site.
+        type: "Filme",
+        // Linha 683: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Ficção científica", "Comédia", "Drama"],
+        // Linha 684: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 7.8 },
+        // Linha 685: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/2t9AbKzN1NQ9Ej5i6Kii48qVJmP.jpg" },
+        // Linha 686: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Uma mulher comum se vê envolvida em uma aventura pelo multiverso para salvar sua família e a realidade.",
+        // Linha 687: Executa uma instrução do JavaScript para controlar o site.
+        status: "Lançado",
+        // Linha 688: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 689: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2022-03-24"
+      // Linha 690: Fecha o bloco de código atual.
+      },
+      // Linha 691: Organiza a abertura ou fechamento de uma estrutura do código.
+      {
+        // Linha 692: Executa uma instrução do JavaScript para controlar o site.
+        id: 12,
+        // Linha 693: Executa uma instrução do JavaScript para controlar o site.
+        name: "Ruptura",
+        // Linha 694: Executa uma instrução do JavaScript para controlar o site.
+        type: "Série",
+        // Linha 695: Executa uma instrução do JavaScript para controlar o site.
+        genres: ["Drama", "Suspense", "Ficção científica"],
+        // Linha 696: Executa uma instrução do JavaScript para controlar o site.
+        rating: { average: 8.7 },
+        // Linha 697: Executa uma instrução do JavaScript para controlar o site.
+        image: { medium: "https://image.tmdb.org/t/p/w500/lFf6LLrQjYldcZItzOkGmMMigP7.jpg" },
+        // Linha 698: Executa uma instrução do JavaScript para controlar o site.
+        summary: "Funcionários de uma empresa passam por um procedimento que separa memórias pessoais e profissionais.",
+        // Linha 699: Executa uma instrução do JavaScript para controlar o site.
+        status: "Em exibição",
+        // Linha 700: Executa uma instrução do JavaScript para controlar o site.
+        language: "English",
+        // Linha 701: Executa uma instrução do JavaScript para controlar o site.
+        premiered: "2022-02-18"
+      // Linha 702: Fecha o bloco de código atual.
+      }
+    // Linha 703: Organiza a abertura ou fechamento de uma estrutura do código.
+    ];
+
+    // Linha 705: Inicia uma classe para organizar os dados das obras.
+    class Obra {
+      // Linha 706: Inicia o método que cria um novo objeto da classe.
+      constructor(dados) {
+        // Linha 707: Executa uma instrução do JavaScript para controlar o site.
+        this.id = dados.id;
+        // Linha 708: Executa uma instrução do JavaScript para controlar o site.
+        this.nome = dados.name || "Nome não informado";
+        // Linha 709: Executa uma instrução do JavaScript para controlar o site.
+        this.tipo = dados.type || "Série";
+        // Linha 710: Executa uma instrução do JavaScript para controlar o site.
+        this.generos = dados.genres || [];
+        // Linha 711: Executa uma instrução do JavaScript para controlar o site.
+        this.nota = dados.rating?.average || 0;
+        // Linha 712: Executa uma instrução do JavaScript para controlar o site.
+        this.imagem = dados.image?.medium || "https://via.placeholder.com/300x450/101b33/ffffff?text=Sem+Imagem";
+        // Linha 713: Executa uma instrução do JavaScript para controlar o site.
+        this.resumo = dados.summary || "Resumo não disponível.";
+        // Linha 714: Executa uma instrução do JavaScript para controlar o site.
+        this.status = dados.status || "Não informado";
+        // Linha 715: Executa uma instrução do JavaScript para controlar o site.
+        this.idioma = dados.language || "Não informado";
+        // Linha 716: Executa uma instrução do JavaScript para controlar o site.
+        this.estreia = dados.premiered || "Não informada";
+      // Linha 717: Fecha o bloco de código atual.
+      }
+
+      // Linha 719: Executa uma instrução do JavaScript para controlar o site.
+      resumoLimpo() {
+        // Linha 720: Retorna o resultado processado pela função.
+        return this.resumo.replace(/<[^>]*>/g, "");
+      // Linha 721: Fecha o bloco de código atual.
+      }
+
+      // Linha 723: Executa uma instrução do JavaScript para controlar o site.
+      generosFormatados() {
+        // Linha 724: Retorna o resultado processado pela função.
+        return this.generos.length > 0 ? this.generos.join(", ") : "Gênero não informado";
+      // Linha 725: Fecha o bloco de código atual.
+      }
+
+      // Linha 727: Executa uma instrução do JavaScript para controlar o site.
+      anoLancamento() {
+        // Linha 728: Retorna o resultado processado pela função.
+        return this.estreia && this.estreia !== "Não informada" ? this.estreia.slice(0, 4) : "Ano não informado";
+      // Linha 729: Fecha o bloco de código atual.
+      }
+    // Linha 730: Fecha o bloco de código atual.
+    }
+
+    // Linha 732: Inicia uma função responsável por uma ação do site.
+    function filtrarComNota(lista) {
+      // Linha 733: Retorna o resultado processado pela função.
+      return lista.filter((obra) => Number(obra.nota) > 0);
+    // Linha 734: Fecha o bloco de código atual.
+    }
+
+    // Linha 736: Inicia uma função responsável por uma ação do site.
+    function ordenarPorNota(lista) {
+      // Linha 737: Retorna o resultado processado pela função.
+      return [...lista].sort((a, b) => Number(b.nota) - Number(a.nota));
+    // Linha 738: Fecha o bloco de código atual.
+    }
+
+    // Linha 740: Inicia uma função responsável por uma ação do site.
+    function limitarLista(lista, limite) {
+      // Linha 741: Retorna o resultado processado pela função.
+      return lista.slice(0, limite);
+    // Linha 742: Fecha o bloco de código atual.
+    }
+
+    // Linha 744: Inicia uma função responsável por uma ação do site.
+    function salvarFavoritos(favoritos) {
+      // Linha 745: Executa uma instrução do JavaScript para controlar o site.
+      localStorage.setItem("cinecatalogo_favoritos_thayna", JSON.stringify(favoritos));
+    // Linha 746: Fecha o bloco de código atual.
+    }
+
+    // Linha 748: Inicia uma função responsável por uma ação do site.
+    function buscarFavoritos() {
+      // Linha 749: Retorna o resultado processado pela função.
+      return JSON.parse(localStorage.getItem("cinecatalogo_favoritos_thayna")) || [];
+    // Linha 750: Fecha o bloco de código atual.
+    }
+
+    // Linha 752: Inicia uma função responsável por uma ação do site.
+    function estaNosFavoritos(id) {
+      // Linha 753: Retorna o resultado processado pela função.
+      return buscarFavoritos().some((obra) => Number(obra.id) === Number(id));
+    // Linha 754: Fecha o bloco de código atual.
+    }
+
+    // Linha 756: Inicia uma função responsável por uma ação do site.
+    function aplicarFiltro(lista, filtro) {
+      // Linha 757: Verifica uma condição antes de executar o próximo bloco.
+      if (filtro === "filmes") {
+        // Linha 758: Retorna o resultado processado pela função.
+        return lista.filter((obra) => obra.tipo.toLowerCase() === "filme");
+      // Linha 759: Fecha o bloco de código atual.
+      }
+      // Linha 760: Verifica uma condição antes de executar o próximo bloco.
+      if (filtro === "series") {
+        // Linha 761: Retorna o resultado processado pela função.
+        return lista.filter((obra) => obra.tipo.toLowerCase() === "série" || obra.tipo.toLowerCase() === "serie");
+      // Linha 762: Fecha o bloco de código atual.
+      }
+      // Linha 763: Verifica uma condição antes de executar o próximo bloco.
+      if (filtro === "2020") {
+        // Linha 764: Retorna o resultado processado pela função.
+        return lista.filter((obra) => Number(obra.anoLancamento()) >= 2020);
+      // Linha 765: Fecha o bloco de código atual.
+      }
+      // Linha 766: Verifica uma condição antes de executar o próximo bloco.
+      if (filtro === "favoritos") {
+        // Linha 767: Cria uma constante usada no funcionamento do site.
+        const idsFavoritos = buscarFavoritos().map((obra) => Number(obra.id));
+        // Linha 768: Retorna o resultado processado pela função.
+        return lista.filter((obra) => idsFavoritos.includes(Number(obra.id)));
+      // Linha 769: Fecha o bloco de código atual.
+      }
+      // Linha 770: Retorna o resultado processado pela função.
+      return lista;
+    // Linha 771: Fecha o bloco de código atual.
+    }
+
+    // Linha 773: Inicia uma função responsável por uma ação do site.
+    async function buscarObras(termo) {
+      // Linha 774: Tenta executar um código que pode gerar erro.
+      try {
+        // Linha 775: Cria uma constante usada no funcionamento do site.
+        const resposta = await fetch(`https://api.tvmaze.com/search/shows?q=${encodeURIComponent(termo)}`);
+        // Linha 776: Cria uma constante usada no funcionamento do site.
+        const dados = await resposta.json();
+        // Linha 777: Cria uma constante usada no funcionamento do site.
+        const resultadosApi = dados.map((item) => new Obra(item.show));
+        // Linha 778: Cria uma constante usada no funcionamento do site.
+        const resultadosFiltrados = resultadosApi.filter((obra) => Number(obra.anoLancamento()) >= 2020);
+
+        // Linha 780: Verifica uma condição antes de executar o próximo bloco.
+        if (resultadosFiltrados.length === 0) {
+          // Linha 781: Retorna o resultado processado pela função.
+          return catalogoAtual
+            // Linha 782: Executa uma instrução do JavaScript para controlar o site.
+            .map((item) => new Obra(item))
+            // Linha 783: Executa uma instrução do JavaScript para controlar o site.
+            .filter((obra) => obra.nome.toLowerCase().includes(termo.toLowerCase()));
+        // Linha 784: Fecha o bloco de código atual.
+        }
+        // Linha 785: Retorna o resultado processado pela função.
+        return resultadosFiltrados;
+      // Linha 786: Executa uma instrução do JavaScript para controlar o site.
+      } catch (erro) {
+        // Linha 787: Executa uma instrução do JavaScript para controlar o site.
+        console.error("Erro na API. Usando catálogo local.", erro);
+        // Linha 788: Retorna o resultado processado pela função.
+        return catalogoAtual
+          // Linha 789: Executa uma instrução do JavaScript para controlar o site.
+          .map((item) => new Obra(item))
+          // Linha 790: Executa uma instrução do JavaScript para controlar o site.
+          .filter((obra) => obra.nome.toLowerCase().includes(termo.toLowerCase()));
+      // Linha 791: Fecha o bloco de código atual.
+      }
+    // Linha 792: Fecha o bloco de código atual.
+    }
+
+    // Linha 794: Inicia uma função responsável por uma ação do site.
+    async function buscarCatalogoInicial() {
+      // Linha 795: Retorna o resultado processado pela função.
+      return catalogoAtual.map((item) => new Obra(item));
+    // Linha 796: Fecha o bloco de código atual.
+    }
+
+    // Linha 798: Inicia uma função responsável por uma ação do site.
+    async function buscarObraPorId(id) {
+      // Linha 799: Cria uma constante usada no funcionamento do site.
+      const local = catalogoAtual.find((item) => Number(item.id) === Number(id));
+      // Linha 800: Verifica uma condição antes de executar o próximo bloco.
+      if (local) return new Obra(local);
+
+      // Linha 802: Tenta executar um código que pode gerar erro.
+      try {
+        // Linha 803: Cria uma constante usada no funcionamento do site.
+        const resposta = await fetch(`https://api.tvmaze.com/shows/${id}`);
+        // Linha 804: Cria uma constante usada no funcionamento do site.
+        const dados = await resposta.json();
+        // Linha 805: Retorna o resultado processado pela função.
+        return new Obra(dados);
+      // Linha 806: Executa uma instrução do JavaScript para controlar o site.
+      } catch (erro) {
+        // Linha 807: Retorna o resultado processado pela função.
+        return null;
+      // Linha 808: Fecha o bloco de código atual.
+      }
+    // Linha 809: Fecha o bloco de código atual.
+    }
+
+    // Linha 811: Inicia uma função responsável por uma ação do site.
+    function marcarMenuAtivo(botaoAtivo) {
+      // Linha 812: Percorre os itens de uma lista.
+      [btnHome, btnCatalogo, btnFavoritos].forEach((botao) => botao.classList.remove("ativo"));
+      // Linha 813: Executa uma instrução do JavaScript para controlar o site.
+      botaoAtivo.classList.add("ativo");
+    // Linha 814: Fecha o bloco de código atual.
+    }
+
+    // Linha 816: Inicia uma função responsável por uma ação do site.
+    function renderizarHome() {
+      // Linha 817: Executa uma instrução do JavaScript para controlar o site.
+      marcarMenuAtivo(btnHome);
+      // Linha 818: Insere conteúdo HTML dentro de um elemento.
+      app.innerHTML = "";
+
+      // Linha 820: Cria uma constante usada no funcionamento do site.
+      const hero = document.createElement("section");
+      // Linha 821: Define a classe CSS do elemento.
+      hero.className = "hero";
+
+      // Linha 823: Cria uma constante usada no funcionamento do site.
+      const bloco1 = document.createElement("div");
+      // Linha 824: Define a classe CSS do elemento.
+      bloco1.className = "caixa hero-principal";
+
+      // Linha 826: Cria uma constante usada no funcionamento do site.
+      const tag = document.createElement("span");
+      // Linha 827: Define a classe CSS do elemento.
+      tag.className = "tag";
+      // Linha 828: Define o texto visível de um elemento.
+      tag.textContent = "Filmes e séries recentes";
+
+      // Linha 830: Cria uma constante usada no funcionamento do site.
+      const titulo = document.createElement("h2");
+      // Linha 831: Define o texto visível de um elemento.
+      titulo.textContent = "Seu catálogo moderno para descobrir novas histórias";
+
+      // Linha 833: Cria uma constante usada no funcionamento do site.
+      const texto = document.createElement("p");
+      // Linha 834: Define o texto visível de um elemento.
+      texto.textContent = "Explore produções lançadas a partir de 2020, veja detalhes, pesquise por título e salve seus favoritos em uma interface dinâmica.";
+
+      // Linha 836: Cria uma constante usada no funcionamento do site.
+      const acoes = document.createElement("div");
+      // Linha 837: Define a classe CSS do elemento.
+      acoes.className = "hero-acoes";
+
+      // Linha 839: Cria uma constante usada no funcionamento do site.
+      const botaoCatalogo = document.createElement("button");
+      // Linha 840: Define a classe CSS do elemento.
+      botaoCatalogo.className = "btn-vermelho";
+      // Linha 841: Define o texto visível de um elemento.
+      botaoCatalogo.textContent = "Explorar catálogo";
+      // Linha 842: Define o que acontece quando o usuário clica no elemento.
+      botaoCatalogo.onclick = renderizarCatalogo;
+
+      // Linha 844: Cria uma constante usada no funcionamento do site.
+      const botaoFavoritos = document.createElement("button");
+      // Linha 845: Define a classe CSS do elemento.
+      botaoFavoritos.className = "btn-neutro";
+      // Linha 846: Define o texto visível de um elemento.
+      botaoFavoritos.textContent = "Ver favoritos";
+      // Linha 847: Define o que acontece quando o usuário clica no elemento.
+      botaoFavoritos.onclick = renderizarFavoritos;
+
+      // Linha 849: Adiciona um elemento dentro de outro elemento da página.
+      acoes.appendChild(botaoCatalogo);
+      // Linha 850: Adiciona um elemento dentro de outro elemento da página.
+      acoes.appendChild(botaoFavoritos);
+
+      // Linha 852: Adiciona um elemento dentro de outro elemento da página.
+      bloco1.appendChild(tag);
+      // Linha 853: Adiciona um elemento dentro de outro elemento da página.
+      bloco1.appendChild(titulo);
+      // Linha 854: Adiciona um elemento dentro de outro elemento da página.
+      bloco1.appendChild(texto);
+      // Linha 855: Adiciona um elemento dentro de outro elemento da página.
+      bloco1.appendChild(acoes);
+
+      // Linha 857: Cria uma constante usada no funcionamento do site.
+      const vitrine = document.createElement("div");
+      // Linha 858: Define a classe CSS do elemento.
+      vitrine.className = "vitrine-home";
+
+      // Linha 860: Cria uma constante usada no funcionamento do site.
+      const destaquePrincipal = new Obra(catalogoAtual[0]);
+      // Linha 861: Cria uma constante usada no funcionamento do site.
+      const serieDestaque = new Obra(catalogoAtual[4]);
+      // Linha 862: Cria uma constante usada no funcionamento do site.
+      const animacaoDestaque = new Obra(catalogoAtual[1]);
+
+      // Linha 864: Cria uma constante usada no funcionamento do site.
+      const principal = document.createElement("article");
+      // Linha 865: Define a classe CSS do elemento.
+      principal.className = "vitrine-principal";
+      // Linha 866: Define o que acontece quando o usuário clica no elemento.
+      principal.onclick = () => renderizarDetalhes(destaquePrincipal.id);
+      // Linha 867: Insere conteúdo HTML dentro de um elemento.
+      principal.innerHTML = `
+        <!-- Linha 868: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        <img src="${destaquePrincipal.imagem}" alt="${destaquePrincipal.nome}">
+        <!-- Linha 869: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        <div class="vitrine-info">
+          <!-- Linha 870: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <span class="selo">Destaque principal</span>
+          <!-- Linha 871: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <strong>${destaquePrincipal.nome}</strong>
+          <!-- Linha 872: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <span>${destaquePrincipal.tipo} • ${destaquePrincipal.anoLancamento()} • ★ ${destaquePrincipal.nota}</span>
+        <!-- Linha 873: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        </div>
+      <!-- Linha 874: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+      `;
+
+      // Linha 876: Cria uma constante usada no funcionamento do site.
+      const coluna = document.createElement("div");
+      // Linha 877: Define a classe CSS do elemento.
+      coluna.className = "vitrine-coluna";
+
+      // Linha 879: Cria uma constante usada no funcionamento do site.
+      const mini1 = document.createElement("article");
+      // Linha 880: Define a classe CSS do elemento.
+      mini1.className = "mini-poster";
+      // Linha 881: Define o que acontece quando o usuário clica no elemento.
+      mini1.onclick = () => renderizarDetalhes(serieDestaque.id);
+      // Linha 882: Insere conteúdo HTML dentro de um elemento.
+      mini1.innerHTML = `
+        <!-- Linha 883: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        <img src="${serieDestaque.imagem}" alt="${serieDestaque.nome}">
+        <!-- Linha 884: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        <div class="vitrine-info">
+          <!-- Linha 885: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <span class="selo">Série em alta</span>
+          <!-- Linha 886: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <strong>${serieDestaque.nome}</strong>
+          <!-- Linha 887: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <span>${serieDestaque.tipo} • ${serieDestaque.anoLancamento()} • ★ ${serieDestaque.nota}</span>
+        <!-- Linha 888: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        </div>
+      <!-- Linha 889: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+      `;
+
+      // Linha 891: Cria uma constante usada no funcionamento do site.
+      const mini2 = document.createElement("article");
+      // Linha 892: Define a classe CSS do elemento.
+      mini2.className = "mini-poster";
+      // Linha 893: Define o que acontece quando o usuário clica no elemento.
+      mini2.onclick = () => renderizarDetalhes(animacaoDestaque.id);
+      // Linha 894: Insere conteúdo HTML dentro de um elemento.
+      mini2.innerHTML = `
+        <!-- Linha 895: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        <img src="${animacaoDestaque.imagem}" alt="${animacaoDestaque.nome}">
+        <!-- Linha 896: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        <div class="vitrine-info">
+          <!-- Linha 897: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <span class="selo">Para toda família</span>
+          <!-- Linha 898: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <strong>${animacaoDestaque.nome}</strong>
+          <!-- Linha 899: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+          <span>${animacaoDestaque.tipo} • ${animacaoDestaque.anoLancamento()} • ★ ${animacaoDestaque.nota}</span>
+        <!-- Linha 900: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+        </div>
+      <!-- Linha 901: Linha de HTML que será inserida dinamicamente pelo JavaScript. -->
+      `;
+
+      // Linha 903: Adiciona um elemento dentro de outro elemento da página.
+      coluna.appendChild(mini1);
+      // Linha 904: Adiciona um elemento dentro de outro elemento da página.
+      coluna.appendChild(mini2);
+
+      // Linha 906: Adiciona um elemento dentro de outro elemento da página.
+      vitrine.appendChild(principal);
+      // Linha 907: Adiciona um elemento dentro de outro elemento da página.
+      vitrine.appendChild(coluna);
+
+      // Linha 909: Adiciona um elemento dentro de outro elemento da página.
+      hero.appendChild(bloco1);
+      // Linha 910: Adiciona um elemento dentro de outro elemento da página.
+      hero.appendChild(vitrine);
+      // Linha 911: Adiciona um elemento dentro de outro elemento da página.
+      app.appendChild(hero);
+
+      // Linha 913: Cria uma constante usada no funcionamento do site.
+      const secaoAlta = document.createElement("section");
+      // Linha 914: Define a classe CSS do elemento.
+      secaoAlta.className = "caixa secao-em-alta";
+
+      // Linha 916: Cria uma constante usada no funcionamento do site.
+      const topo = document.createElement("div");
+      // Linha 917: Define a classe CSS do elemento.
+      topo.className = "topo-secao";
+
+      // Linha 919: Cria uma constante usada no funcionamento do site.
+      const tituloAlta = document.createElement("h2");
+      // Linha 920: Define o texto visível de um elemento.
+      tituloAlta.textContent = "Em destaque";
+
+      // Linha 922: Cria uma constante usada no funcionamento do site.
+      const botaoVerTudo = document.createElement("button");
+      // Linha 923: Define a classe CSS do elemento.
+      botaoVerTudo.className = "btn-azul";
+      // Linha 924: Define o texto visível de um elemento.
+      botaoVerTudo.textContent = "Ver catálogo completo";
+      // Linha 925: Define o que acontece quando o usuário clica no elemento.
+      botaoVerTudo.onclick = renderizarCatalogo;
+
+      // Linha 927: Adiciona um elemento dentro de outro elemento da página.
+      topo.appendChild(tituloAlta);
+      // Linha 928: Adiciona um elemento dentro de outro elemento da página.
+      topo.appendChild(botaoVerTudo);
+
+      // Linha 930: Cria uma constante usada no funcionamento do site.
+      const grade = document.createElement("div");
+      // Linha 931: Define a classe CSS do elemento.
+      grade.className = "grade grade-home";
+
+      // Linha 933: Percorre os itens de uma lista.
+      limitarLista(ordenarPorNota(catalogoAtual.map((item) => new Obra(item))), 4).forEach((obra) => {
+        // Linha 934: Adiciona um elemento dentro de outro elemento da página.
+        grade.appendChild(criarCard(obra));
+      // Linha 935: Executa uma instrução do JavaScript para controlar o site.
+      });
+
+      // Linha 937: Adiciona um elemento dentro de outro elemento da página.
+      secaoAlta.appendChild(topo);
+      // Linha 938: Adiciona um elemento dentro de outro elemento da página.
+      secaoAlta.appendChild(grade);
+      // Linha 939: Adiciona um elemento dentro de outro elemento da página.
+      app.appendChild(secaoAlta);
+    // Linha 940: Fecha o bloco de código atual.
+    }
+
+    // Linha 942: Inicia uma função responsável por uma ação do site.
+    async function renderizarCatalogo() {
+      // Linha 943: Executa uma instrução do JavaScript para controlar o site.
+      marcarMenuAtivo(btnCatalogo);
+      // Linha 944: Executa uma instrução do JavaScript para controlar o site.
+      filtroAtual = "todos";
+      // Linha 945: Insere conteúdo HTML dentro de um elemento.
+      app.innerHTML = "";
+
+      // Linha 947: Cria uma constante usada no funcionamento do site.
+      const secao = document.createElement("section");
+      // Linha 948: Define a classe CSS do elemento.
+      secao.className = "caixa";
+
+      // Linha 950: Cria uma constante usada no funcionamento do site.
+      const titulo = document.createElement("h2");
+      // Linha 951: Define o texto visível de um elemento.
+      titulo.textContent = "Catálogo atual";
+
+      // Linha 953: Cria uma constante usada no funcionamento do site.
+      const texto = document.createElement("p");
+      // Linha 954: Define o texto visível de um elemento.
+      texto.textContent = "Escolha uma produção recente, pesquise novos títulos ou filtre as opções abaixo.";
+
+      // Linha 956: Cria uma constante usada no funcionamento do site.
+      const form = document.createElement("form");
+      // Linha 957: Define a classe CSS do elemento.
+      form.className = "form-busca";
+
+      // Linha 959: Cria uma constante usada no funcionamento do site.
+      const input = document.createElement("input");
+      // Linha 960: Executa uma instrução do JavaScript para controlar o site.
+      input.type = "text";
+      // Linha 961: Executa uma instrução do JavaScript para controlar o site.
+      input.placeholder = "Pesquise séries recentes. Ex: The Last of Us, Wednesday, House...";
+      // Linha 962: Executa uma instrução do JavaScript para controlar o site.
+      input.required = true;
+
+      // Linha 964: Cria uma constante usada no funcionamento do site.
+      const botao = document.createElement("button");
+      // Linha 965: Define a classe CSS do elemento.
+      botao.className = "btn-azul";
+      // Linha 966: Executa uma instrução do JavaScript para controlar o site.
+      botao.type = "submit";
+      // Linha 967: Define o texto visível de um elemento.
+      botao.textContent = "Buscar";
+
+      // Linha 969: Cria uma constante usada no funcionamento do site.
+      const filtros = document.createElement("div");
+      // Linha 970: Define a classe CSS do elemento.
+      filtros.className = "filtros";
+
+      // Linha 972: Cria uma constante usada no funcionamento do site.
+      const opcoesFiltro = [
+        // Linha 973: Executa uma instrução do JavaScript para controlar o site.
+        { nome: "Filmes", valor: "filmes" },
+        // Linha 974: Executa uma instrução do JavaScript para controlar o site.
+        { nome: "Séries", valor: "series" },
+        // Linha 975: Executa uma instrução do JavaScript para controlar o site.
+        { nome: "2020+", valor: "2020" },
+        // Linha 976: Executa uma instrução do JavaScript para controlar o site.
+        { nome: "Favoritos locais", valor: "favoritos" },
+        // Linha 977: Executa uma instrução do JavaScript para controlar o site.
+        { nome: "API pública", valor: "api" }
+      // Linha 978: Organiza a abertura ou fechamento de uma estrutura do código.
+      ];
+
+      // Linha 980: Cria uma constante usada no funcionamento do site.
+      const grade = document.createElement("div");
+      // Linha 981: Define a classe CSS do elemento.
+      grade.className = "grade";
+
+      // Linha 983: Percorre os itens de uma lista.
+      opcoesFiltro.forEach((opcao) => {
+        // Linha 984: Cria uma constante usada no funcionamento do site.
+        const chip = document.createElement("button");
+        // Linha 985: Executa uma instrução do JavaScript para controlar o site.
+        chip.type = "button";
+        // Linha 986: Define a classe CSS do elemento.
+        chip.className = "filtro-chip";
+        // Linha 987: Define o texto visível de um elemento.
+        chip.textContent = opcao.nome;
+
+        // Linha 989: Define o que acontece quando o usuário clica no elemento.
+        chip.onclick = async function() {
+          // Linha 990: Percorre os itens de uma lista.
+          document.querySelectorAll(".filtro-chip").forEach((item) => item.classList.remove("ativo"));
+          // Linha 991: Executa uma instrução do JavaScript para controlar o site.
+          chip.classList.add("ativo");
+
+          // Linha 993: Verifica uma condição antes de executar o próximo bloco.
+          if (opcao.valor === "api") {
+            // Linha 994: Executa uma instrução do JavaScript para controlar o site.
+            input.value = "2024";
+            // Linha 995: Cria uma constante usada no funcionamento do site.
+            const resultadoApi = await buscarObras("2024");
+            // Linha 996: Executa uma instrução do JavaScript para controlar o site.
+            listaAtual = resultadoApi;
+            // Linha 997: Executa uma instrução do JavaScript para controlar o site.
+            exibirLista(listaAtual, grade, "todos");
+            // Linha 998: Executa uma instrução do JavaScript para controlar o site.
+            return;
+          // Linha 999: Fecha o bloco de código atual.
+          }
+
+          // Linha 1001: Executa uma instrução do JavaScript para controlar o site.
+          filtroAtual = opcao.valor;
+          // Linha 1002: Executa uma instrução do JavaScript para controlar o site.
+          exibirLista(listaAtual, grade, filtroAtual);
+        // Linha 1003: Fecha o bloco de código atual.
+        };
+
+        // Linha 1005: Adiciona um elemento dentro de outro elemento da página.
+        filtros.appendChild(chip);
+      // Linha 1006: Executa uma instrução do JavaScript para controlar o site.
+      });
+
+      // Linha 1008: Adiciona um elemento dentro de outro elemento da página.
+      form.appendChild(input);
+      // Linha 1009: Adiciona um elemento dentro de outro elemento da página.
+      form.appendChild(botao);
+
+      // Linha 1011: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(titulo);
+      // Linha 1012: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(texto);
+      // Linha 1013: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(form);
+      // Linha 1014: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(filtros);
+      // Linha 1015: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(grade);
+      // Linha 1016: Adiciona um elemento dentro de outro elemento da página.
+      app.appendChild(secao);
+
+      // Linha 1018: Executa uma instrução do JavaScript para controlar o site.
+      listaAtual = await buscarCatalogoInicial();
+      // Linha 1019: Executa uma instrução do JavaScript para controlar o site.
+      exibirLista(listaAtual, grade, "todos");
+
+      // Linha 1021: Executa uma instrução do JavaScript para controlar o site.
+      form.onsubmit = async function(evento) {
+        // Linha 1022: Executa uma instrução do JavaScript para controlar o site.
+        evento.preventDefault();
+        // Linha 1023: Insere conteúdo HTML dentro de um elemento.
+        grade.innerHTML = "";
+        // Linha 1024: Cria uma constante usada no funcionamento do site.
+        const termo = input.value.trim();
+
+        // Linha 1026: Executa uma instrução do JavaScript para controlar o site.
+        listaAtual = await buscarObras(termo);
+        // Linha 1027: Executa uma instrução do JavaScript para controlar o site.
+        filtroAtual = "todos";
+        // Linha 1028: Percorre os itens de uma lista.
+        document.querySelectorAll(".filtro-chip").forEach((item) => item.classList.remove("ativo"));
+        // Linha 1029: Executa uma instrução do JavaScript para controlar o site.
+        exibirLista(listaAtual, grade, filtroAtual);
+      // Linha 1030: Fecha o bloco de código atual.
+      };
+    // Linha 1031: Fecha o bloco de código atual.
+    }
+
+    // Linha 1033: Inicia uma função responsável por uma ação do site.
+    function exibirLista(lista, grade, filtro) {
+      // Linha 1034: Insere conteúdo HTML dentro de um elemento.
+      grade.innerHTML = "";
+      // Linha 1035: Cria uma constante usada no funcionamento do site.
+      const filtradas = aplicarFiltro(lista, filtro);
+      // Linha 1036: Cria uma constante usada no funcionamento do site.
+      const obras = limitarLista(ordenarPorNota(filtradas), 16);
+
+      // Linha 1038: Verifica uma condição antes de executar o próximo bloco.
+      if (obras.length === 0) {
+        // Linha 1039: Cria uma constante usada no funcionamento do site.
+        const aviso = document.createElement("p");
+        // Linha 1040: Define a classe CSS do elemento.
+        aviso.className = "aviso";
+        // Linha 1041: Define o texto visível de um elemento.
+        aviso.textContent = "Nenhum resultado encontrado para esse filtro.";
+        // Linha 1042: Adiciona um elemento dentro de outro elemento da página.
+        grade.appendChild(aviso);
+        // Linha 1043: Executa uma instrução do JavaScript para controlar o site.
+        return;
+      // Linha 1044: Fecha o bloco de código atual.
+      }
+
+      // Linha 1046: Percorre os itens de uma lista.
+      obras.forEach((obra) => {
+        // Linha 1047: Adiciona um elemento dentro de outro elemento da página.
+        grade.appendChild(criarCard(obra));
+      // Linha 1048: Executa uma instrução do JavaScript para controlar o site.
+      });
+    // Linha 1049: Fecha o bloco de código atual.
+    }
+
+    // Linha 1051: Inicia uma função responsável por uma ação do site.
+    function criarCard(obra) {
+      // Linha 1052: Cria uma constante usada no funcionamento do site.
+      const card = document.createElement("article");
+      // Linha 1053: Define a classe CSS do elemento.
+      card.className = "card";
+
+      // Linha 1055: Cria uma constante usada no funcionamento do site.
+      const img = document.createElement("img");
+      // Linha 1056: Executa uma instrução do JavaScript para controlar o site.
+      img.src = obra.imagem;
+      // Linha 1057: Executa uma instrução do JavaScript para controlar o site.
+      img.alt = obra.nome;
+
+      // Linha 1059: Cria uma constante usada no funcionamento do site.
+      const ano = document.createElement("span");
+      // Linha 1060: Define a classe CSS do elemento.
+      ano.className = "ano-badge";
+      // Linha 1061: Define o texto visível de um elemento.
+      ano.textContent = `${obra.tipo} • ${obra.anoLancamento()}`;
+
+      // Linha 1063: Cria uma constante usada no funcionamento do site.
+      const conteudo = document.createElement("div");
+      // Linha 1064: Define a classe CSS do elemento.
+      conteudo.className = "card-conteudo";
+
+      // Linha 1066: Cria uma constante usada no funcionamento do site.
+      const titulo = document.createElement("h3");
+      // Linha 1067: Define o texto visível de um elemento.
+      titulo.textContent = obra.nome;
+
+      // Linha 1069: Cria uma constante usada no funcionamento do site.
+      const generos = document.createElement("p");
+      // Linha 1070: Define a classe CSS do elemento.
+      generos.className = "generos";
+      // Linha 1071: Define o texto visível de um elemento.
+      generos.textContent = obra.generosFormatados();
+
+      // Linha 1073: Cria uma constante usada no funcionamento do site.
+      const nota = document.createElement("p");
+      // Linha 1074: Define a classe CSS do elemento.
+      nota.className = "nota";
+      // Linha 1075: Define o texto visível de um elemento.
+      nota.textContent = `★ ${obra.nota || "sem nota"}`;
+
+      // Linha 1077: Cria uma constante usada no funcionamento do site.
+      const botoes = document.createElement("div");
+      // Linha 1078: Define a classe CSS do elemento.
+      botoes.className = "botoes-card";
+
+      // Linha 1080: Cria uma constante usada no funcionamento do site.
+      const btnDetalhes = document.createElement("button");
+      // Linha 1081: Define a classe CSS do elemento.
+      btnDetalhes.className = "btn-azul";
+      // Linha 1082: Define o texto visível de um elemento.
+      btnDetalhes.textContent = "Detalhes";
+      // Linha 1083: Define o que acontece quando o usuário clica no elemento.
+      btnDetalhes.onclick = () => renderizarDetalhes(obra.id);
+
+      // Linha 1085: Cria uma constante usada no funcionamento do site.
+      const btnFavorito = document.createElement("button");
+      // Linha 1086: Define a classe CSS do elemento.
+      btnFavorito.className = "btn-vermelho";
+      // Linha 1087: Define o texto visível de um elemento.
+      btnFavorito.textContent = estaNosFavoritos(obra.id) ? "Favoritado" : "Favoritar";
+      // Linha 1088: Define o que acontece quando o usuário clica no elemento.
+      btnFavorito.onclick = () => adicionarFavorito(obra);
+
+      // Linha 1090: Adiciona um elemento dentro de outro elemento da página.
+      botoes.appendChild(btnDetalhes);
+      // Linha 1091: Adiciona um elemento dentro de outro elemento da página.
+      botoes.appendChild(btnFavorito);
+
+      // Linha 1093: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(titulo);
+      // Linha 1094: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(generos);
+      // Linha 1095: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(nota);
+      // Linha 1096: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(botoes);
+
+      // Linha 1098: Adiciona um elemento dentro de outro elemento da página.
+      card.appendChild(img);
+      // Linha 1099: Adiciona um elemento dentro de outro elemento da página.
+      card.appendChild(ano);
+      // Linha 1100: Adiciona um elemento dentro de outro elemento da página.
+      card.appendChild(conteudo);
+
+      // Linha 1102: Retorna o resultado processado pela função.
+      return card;
+    // Linha 1103: Fecha o bloco de código atual.
+    }
+
+    // Linha 1105: Inicia uma função responsável por uma ação do site.
+    function adicionarFavorito(obra) {
+      // Linha 1106: Verifica uma condição antes de executar o próximo bloco.
+      if (estaNosFavoritos(obra.id)) {
+        // Linha 1107: Executa uma instrução do JavaScript para controlar o site.
+        alert("Essa obra já está nos favoritos.");
+        // Linha 1108: Executa uma instrução do JavaScript para controlar o site.
+        return;
+      // Linha 1109: Fecha o bloco de código atual.
+      }
+
+      // Linha 1111: Cria uma constante usada no funcionamento do site.
+      const favoritos = buscarFavoritos();
+      // Linha 1112: Executa uma instrução do JavaScript para controlar o site.
+      favoritos.push(obra);
+      // Linha 1113: Executa uma instrução do JavaScript para controlar o site.
+      salvarFavoritos(favoritos);
+      // Linha 1114: Executa uma instrução do JavaScript para controlar o site.
+      alert("Adicionado aos favoritos!");
+    // Linha 1115: Fecha o bloco de código atual.
+    }
+
+    // Linha 1117: Inicia uma função responsável por uma ação do site.
+    async function renderizarDetalhes(id) {
+      // Linha 1118: Insere conteúdo HTML dentro de um elemento.
+      app.innerHTML = "<p class='aviso'>Carregando detalhes...</p>";
+      // Linha 1119: Cria uma constante usada no funcionamento do site.
+      const obra = await buscarObraPorId(id);
+
+      // Linha 1121: Verifica uma condição antes de executar o próximo bloco.
+      if (!obra) {
+        // Linha 1122: Insere conteúdo HTML dentro de um elemento.
+        app.innerHTML = "<p class='aviso'>Não foi possível carregar os detalhes.</p>";
+        // Linha 1123: Executa uma instrução do JavaScript para controlar o site.
+        return;
+      // Linha 1124: Fecha o bloco de código atual.
+      }
+
+      // Linha 1126: Insere conteúdo HTML dentro de um elemento.
+      app.innerHTML = "";
+
+      // Linha 1128: Cria uma constante usada no funcionamento do site.
+      const secao = document.createElement("section");
+      // Linha 1129: Define a classe CSS do elemento.
+      secao.className = "detalhes";
+
+      // Linha 1131: Cria uma constante usada no funcionamento do site.
+      const img = document.createElement("img");
+      // Linha 1132: Executa uma instrução do JavaScript para controlar o site.
+      img.src = obra.imagem;
+      // Linha 1133: Executa uma instrução do JavaScript para controlar o site.
+      img.alt = obra.nome;
+
+      // Linha 1135: Cria uma constante usada no funcionamento do site.
+      const conteudo = document.createElement("div");
+
+      // Linha 1137: Cria uma constante usada no funcionamento do site.
+      const tag = document.createElement("span");
+      // Linha 1138: Define a classe CSS do elemento.
+      tag.className = "tag";
+      // Linha 1139: Define o texto visível de um elemento.
+      tag.textContent = `${obra.tipo} • ${obra.anoLancamento()}`;
+
+      // Linha 1141: Cria uma constante usada no funcionamento do site.
+      const titulo = document.createElement("h2");
+      // Linha 1142: Define o texto visível de um elemento.
+      titulo.textContent = obra.nome;
+
+      // Linha 1144: Cria uma constante usada no funcionamento do site.
+      const resumo = document.createElement("p");
+      // Linha 1145: Define o texto visível de um elemento.
+      resumo.textContent = obra.resumoLimpo();
+
+      // Linha 1147: Cria uma constante usada no funcionamento do site.
+      const generos = document.createElement("p");
+      // Linha 1148: Insere conteúdo HTML dentro de um elemento.
+      generos.innerHTML = `<strong>Gêneros:</strong> ${obra.generosFormatados()}`;
+
+      // Linha 1150: Cria uma constante usada no funcionamento do site.
+      const nota = document.createElement("p");
+      // Linha 1151: Insere conteúdo HTML dentro de um elemento.
+      nota.innerHTML = `<strong>Nota:</strong> ${obra.nota || "Sem nota"}`;
+
+      // Linha 1153: Cria uma constante usada no funcionamento do site.
+      const status = document.createElement("p");
+      // Linha 1154: Insere conteúdo HTML dentro de um elemento.
+      status.innerHTML = `<strong>Status:</strong> ${obra.status}`;
+
+      // Linha 1156: Cria uma constante usada no funcionamento do site.
+      const idioma = document.createElement("p");
+      // Linha 1157: Insere conteúdo HTML dentro de um elemento.
+      idioma.innerHTML = `<strong>Idioma:</strong> ${obra.idioma}`;
+
+      // Linha 1159: Cria uma constante usada no funcionamento do site.
+      const estreia = document.createElement("p");
+      // Linha 1160: Insere conteúdo HTML dentro de um elemento.
+      estreia.innerHTML = `<strong>Estreia:</strong> ${obra.estreia}`;
+
+      // Linha 1162: Cria uma constante usada no funcionamento do site.
+      const voltar = document.createElement("button");
+      // Linha 1163: Define a classe CSS do elemento.
+      voltar.className = "btn-vermelho";
+      // Linha 1164: Define o texto visível de um elemento.
+      voltar.textContent = "Voltar ao catálogo";
+      // Linha 1165: Define o que acontece quando o usuário clica no elemento.
+      voltar.onclick = renderizarCatalogo;
+
+      // Linha 1167: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(tag);
+      // Linha 1168: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(titulo);
+      // Linha 1169: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(resumo);
+      // Linha 1170: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(generos);
+      // Linha 1171: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(nota);
+      // Linha 1172: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(status);
+      // Linha 1173: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(idioma);
+      // Linha 1174: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(estreia);
+      // Linha 1175: Adiciona um elemento dentro de outro elemento da página.
+      conteudo.appendChild(voltar);
+
+      // Linha 1177: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(img);
+      // Linha 1178: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(conteudo);
+      // Linha 1179: Adiciona um elemento dentro de outro elemento da página.
+      app.appendChild(secao);
+    // Linha 1180: Fecha o bloco de código atual.
+    }
+
+    // Linha 1182: Inicia uma função responsável por uma ação do site.
+    function renderizarFavoritos() {
+      // Linha 1183: Executa uma instrução do JavaScript para controlar o site.
+      marcarMenuAtivo(btnFavoritos);
+      // Linha 1184: Insere conteúdo HTML dentro de um elemento.
+      app.innerHTML = "";
+
+      // Linha 1186: Cria uma constante usada no funcionamento do site.
+      const secao = document.createElement("section");
+      // Linha 1187: Define a classe CSS do elemento.
+      secao.className = "caixa";
+
+      // Linha 1189: Cria uma constante usada no funcionamento do site.
+      const titulo = document.createElement("h2");
+      // Linha 1190: Define o texto visível de um elemento.
+      titulo.textContent = "Minha lista de favoritos";
+
+      // Linha 1192: Cria uma constante usada no funcionamento do site.
+      const grade = document.createElement("div");
+      // Linha 1193: Define a classe CSS do elemento.
+      grade.className = "grade";
+
+      // Linha 1195: Cria uma constante usada no funcionamento do site.
+      const favoritos = buscarFavoritos().map((item) => new Obra(item));
+
+      // Linha 1197: Verifica uma condição antes de executar o próximo bloco.
+      if (favoritos.length === 0) {
+        // Linha 1198: Cria uma constante usada no funcionamento do site.
+        const aviso = document.createElement("p");
+        // Linha 1199: Define a classe CSS do elemento.
+        aviso.className = "aviso";
+        // Linha 1200: Define o texto visível de um elemento.
+        aviso.textContent = "Você ainda não adicionou nenhum favorito.";
+        // Linha 1201: Adiciona um elemento dentro de outro elemento da página.
+        grade.appendChild(aviso);
+      // Linha 1202: Executa uma instrução do JavaScript para controlar o site.
+      } else {
+        // Linha 1203: Percorre os itens de uma lista.
+        favoritos.forEach((obra) => {
+          // Linha 1204: Cria uma constante usada no funcionamento do site.
+          const card = criarCard(obra);
+
+          // Linha 1206: Cria uma constante usada no funcionamento do site.
+          const btnRemover = document.createElement("button");
+          // Linha 1207: Define a classe CSS do elemento.
+          btnRemover.className = "btn-neutro";
+          // Linha 1208: Define o texto visível de um elemento.
+          btnRemover.textContent = "Remover";
+          // Linha 1209: Define o que acontece quando o usuário clica no elemento.
+          btnRemover.onclick = () => removerFavorito(obra.id);
+
+          // Linha 1211: Adiciona um elemento dentro de outro elemento da página.
+          card.querySelector(".botoes-card").appendChild(btnRemover);
+          // Linha 1212: Adiciona um elemento dentro de outro elemento da página.
+          grade.appendChild(card);
+        // Linha 1213: Executa uma instrução do JavaScript para controlar o site.
+        });
+      // Linha 1214: Fecha o bloco de código atual.
+      }
+
+      // Linha 1216: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(titulo);
+      // Linha 1217: Adiciona um elemento dentro de outro elemento da página.
+      secao.appendChild(grade);
+      // Linha 1218: Adiciona um elemento dentro de outro elemento da página.
+      app.appendChild(secao);
+    // Linha 1219: Fecha o bloco de código atual.
+    }
+
+    // Linha 1221: Inicia uma função responsável por uma ação do site.
+    function removerFavorito(id) {
+      // Linha 1222: Cria uma constante usada no funcionamento do site.
+      const favoritosAtualizados = buscarFavoritos().filter((obra) => Number(obra.id) !== Number(id));
+      // Linha 1223: Executa uma instrução do JavaScript para controlar o site.
+      salvarFavoritos(favoritosAtualizados);
+      // Linha 1224: Executa uma instrução do JavaScript para controlar o site.
+      renderizarFavoritos();
+    // Linha 1225: Fecha o bloco de código atual.
+    }
+
+    // Linha 1227: Define o que acontece quando o usuário clica no elemento.
+    btnHome.onclick = renderizarHome;
+    // Linha 1228: Define o que acontece quando o usuário clica no elemento.
+    btnCatalogo.onclick = renderizarCatalogo;
+    // Linha 1229: Define o que acontece quando o usuário clica no elemento.
+    btnFavoritos.onclick = renderizarFavoritos;
+
+    // Linha 1231: Executa uma instrução do JavaScript para controlar o site.
+    renderizarHome();
+  // Linha 1232: Executa uma instrução do JavaScript para controlar o site.
+  </script>
+<!-- Linha 1233: Fecha o conteúdo visível da página. -->
+</body>
+<!-- Linha 1234: Fecha o documento HTML. -->
+</html>
