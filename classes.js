@@ -1,1 +1,0 @@
-// Classe Obra incorporada no index.html.
