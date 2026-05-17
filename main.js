@@ -1,1 +1,0 @@
-// Integração geral incorporada no index.html.
