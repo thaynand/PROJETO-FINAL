@@ -1,1 +1,0 @@
-// Requisições via fetch incorporadas no index.html.
