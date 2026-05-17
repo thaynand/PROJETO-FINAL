@@ -1,0 +1,2256 @@
+<!-- Define que o documento usa HTML5. -->
+<!DOCTYPE html>
+<!-- Inicia a página HTML e define o idioma como português do Brasil. -->
+<html lang="pt-BR">
+<!-- Inicia o cabeçalho de configurações da página. -->
+<head>
+  <!-- Define a codificação de caracteres para aceitar acentos e símbolos. -->
+  <meta charset="UTF-8">
+  <!-- Ajusta a página para funcionar bem em telas de celular e computador. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Define o título que aparece na aba do navegador. -->
+  <title>CineCatálogo</title>
+
+  <!-- Inicia a área de CSS interno, responsável pela aparência do site. -->
+  <style>
+    /* Inicia a estilização do seletor *. */
+    * {
+      /* Define como largura e altura calculam bordas e preenchimentos. */
+      box-sizing: border-box;
+      /* Define a margem externa do elemento. */
+      margin: 0;
+      /* Define o espaçamento interno do elemento. */
+      padding: 0;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor :root. */
+    :root {
+      /* Define a propriedade CSS --azul-card. */
+      --azul-card: #101b33;
+      /* Define a propriedade CSS --azul-medio. */
+      --azul-medio: #1d4ed8;
+      /* Define a propriedade CSS --azul-claro. */
+      --azul-claro: #60a5fa;
+      /* Define a propriedade CSS --vermelho. */
+      --vermelho: #ef4444;
+      /* Define a propriedade CSS --texto. */
+      --texto: #f8fafc;
+      /* Define a propriedade CSS --texto-suave. */
+      --texto-suave: #cbd5e1;
+      /* Define a propriedade CSS --borda. */
+      --borda: rgba(148, 163, 184, 0.22);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor body. */
+    body {
+      /* Define a família de fonte usada no texto. */
+      font-family: Arial, Helvetica, sans-serif;
+      /* Define a altura mínima do elemento. */
+      min-height: 100vh;
+      /* Define a cor do texto. */
+      color: var(--texto);
+      /* Define o fundo do elemento. */
+      background:
+        /* Linha de estilo CSS. */
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.35), transparent 36%),
+        /* Linha de estilo CSS. */
+        radial-gradient(circle at top right, rgba(239, 68, 68, 0.22), transparent 32%),
+        /* Linha de estilo CSS. */
+        linear-gradient(135deg, #020617, #0f172a 55%, #111827);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor header. */
+    header {
+      /* Define o tipo de posicionamento do elemento. */
+      position: sticky;
+      /* Define a distância em relação ao topo. */
+      top: 0;
+      /* Define a ordem de sobreposição na tela. */
+      z-index: 10;
+      /* Aplica efeito visual de desfoque no fundo. */
+      backdrop-filter: blur(16px);
+      /* Define o fundo do elemento. */
+      background: rgba(2, 6, 23, 0.86);
+      /* Define a borda inferior. */
+      border-bottom: 1px solid var(--borda);
+      /* Define o espaçamento interno do elemento. */
+      padding: 18px 7%;
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Distribui os elementos no eixo principal. */
+      justify-content: space-between;
+      /* Alinha os elementos no eixo transversal. */
+      align-items: center;
+      /* Define o espaço entre os elementos. */
+      gap: 18px;
+      /* Permite que os itens quebrem linha. */
+      flex-wrap: wrap;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .logo-area. */
+    .logo-area {
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Alinha os elementos no eixo transversal. */
+      align-items: center;
+      /* Define o espaço entre os elementos. */
+      gap: 14px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .logo. */
+    .logo {
+      /* Define a largura. */
+      width: 54px;
+      /* Define a altura. */
+      height: 54px;
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Centraliza itens dentro do grid. */
+      place-items: center;
+      /* Arredonda as bordas. */
+      border-radius: 18px;
+      /* Define o fundo do elemento. */
+      background: linear-gradient(135deg, var(--vermelho), var(--azul-medio));
+      /* Define o tamanho da fonte. */
+      font-size: 1.7rem;
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor h1. */
+    h1 {
+      /* Define o tamanho da fonte. */
+      font-size: 2rem;
+      /* Define o espaçamento entre letras. */
+      letter-spacing: 1px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor header p. */
+    header p {
+      /* Define a cor do texto. */
+      color: var(--texto-suave);
+      /* Define a propriedade CSS margin-top. */
+      margin-top: 3px;
+      /* Define o tamanho da fonte. */
+      font-size: 0.96rem;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor nav. */
+    nav {
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define o espaço entre os elementos. */
+      gap: 10px;
+      /* Permite que os itens quebrem linha. */
+      flex-wrap: wrap;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor button. */
+    button {
+      /* Define a borda do elemento. */
+      border: none;
+      /* Arredonda as bordas. */
+      border-radius: 999px;
+      /* Define o espaçamento interno do elemento. */
+      padding: 12px 18px;
+      /* Define o cursor do mouse. */
+      cursor: pointer;
+      /* Define a espessura da fonte. */
+      font-weight: 700;
+      /* Define o fundo do elemento. */
+      background: #e5e7eb;
+      /* Define a cor do texto. */
+      color: #111827;
+      /* Define a transição de efeitos visuais. */
+      transition: 0.22s;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor button:hover. */
+    button:hover {
+      /* Move ou redimensiona visualmente o elemento. */
+      transform: translateY(-2px);
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Linha de estilo CSS. */
+    button.ativo,
+    /* Inicia a estilização do seletor .btn-vermelho. */
+    .btn-vermelho {
+      /* Define a cor do texto. */
+      color: #fff;
+      /* Define o fundo do elemento. */
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .btn-azul. */
+    .btn-azul {
+      /* Define a cor do texto. */
+      color: white;
+      /* Define o fundo do elemento. */
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .btn-neutro. */
+    .btn-neutro {
+      /* Define a cor do texto. */
+      color: white;
+      /* Define o fundo do elemento. */
+      background: #334155;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor main. */
+    main {
+      /* Define o espaçamento interno do elemento. */
+      padding: 36px 7%;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .hero. */
+    .hero {
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Define as colunas do grid. */
+      grid-template-columns: 1.03fr 0.97fr;
+      /* Define o espaço entre os elementos. */
+      gap: 28px;
+      /* Alinha os elementos no eixo transversal. */
+      align-items: stretch;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .caixa. */
+    .caixa {
+      /* Define o fundo do elemento. */
+      background: rgba(16, 27, 51, 0.88);
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Arredonda as bordas. */
+      border-radius: 28px;
+      /* Define o espaçamento interno do elemento. */
+      padding: 30px;
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .hero-principal. */
+    .hero-principal {
+      /* Define o tipo de posicionamento do elemento. */
+      position: relative;
+      /* Controla o conteúdo que passa do limite. */
+      overflow: hidden;
+      /* Define a altura mínima do elemento. */
+      min-height: 520px;
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define a direção dos itens flexíveis. */
+      flex-direction: column;
+      /* Distribui os elementos no eixo principal. */
+      justify-content: center;
+      /* Define o fundo do elemento. */
+      background:
+        /* Linha de estilo CSS. */
+        linear-gradient(135deg, rgba(16, 27, 51, 0.96), rgba(16, 27, 51, 0.80)),
+        /* Define a propriedade CSS url("https. */
+        url("https://image.tmdb.org/t/p/w1280/8rpDcsfLJypbO6vREc0547VKqEv.jpg");
+      /* Define o tamanho da imagem de fundo. */
+      background-size: cover;
+      /* Define a posição da imagem de fundo. */
+      background-position: center;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .hero-principal::after. */
+    .hero-principal::after {
+      /* Cria conteúdo para pseudo-elementos. */
+      content: "";
+      /* Define o tipo de posicionamento do elemento. */
+      position: absolute;
+      /* Define a posição à direita. */
+      right: -110px;
+      /* Define a posição inferior. */
+      bottom: -140px;
+      /* Define a largura. */
+      width: 360px;
+      /* Define a altura. */
+      height: 360px;
+      /* Arredonda as bordas. */
+      border-radius: 50%;
+      /* Define o fundo do elemento. */
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.35), transparent 65%);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .tag. */
+    .tag {
+      /* Define a largura. */
+      width: fit-content;
+      /* Define o fundo do elemento. */
+      background: rgba(96, 165, 250, 0.16);
+      /* Define a cor do texto. */
+      color: #bfdbfe;
+      /* Define a borda do elemento. */
+      border: 1px solid rgba(147, 197, 253, 0.32);
+      /* Define o espaçamento interno do elemento. */
+      padding: 8px 13px;
+      /* Arredonda as bordas. */
+      border-radius: 999px;
+      /* Define o modo de exibição do elemento. */
+      display: inline-block;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 16px;
+      /* Define o tamanho da fonte. */
+      font-size: 0.88rem;
+      /* Define a espessura da fonte. */
+      font-weight: bold;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor h2. */
+    h2 {
+      /* Define a cor do texto. */
+      color: #eff6ff;
+      /* Define o tamanho da fonte. */
+      font-size: clamp(2rem, 4vw, 4rem);
+      /* Define a altura da linha do texto. */
+      line-height: 1.05;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 16px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor h3. */
+    h3 {
+      /* Define a cor do texto. */
+      color: #bfdbfe;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 12px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor p. */
+    p {
+      /* Define a altura da linha do texto. */
+      line-height: 1.7;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .hero p. */
+    .hero p {
+      /* Define a largura máxima. */
+      max-width: 680px;
+      /* Define a cor do texto. */
+      color: #dbeafe;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 22px;
+      /* Define o tamanho da fonte. */
+      font-size: 1.05rem;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .hero-acoes. */
+    .hero-acoes {
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define o espaço entre os elementos. */
+      gap: 12px;
+      /* Permite que os itens quebrem linha. */
+      flex-wrap: wrap;
+      /* Define o tipo de posicionamento do elemento. */
+      position: relative;
+      /* Define a ordem de sobreposição na tela. */
+      z-index: 1;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-home. */
+    .vitrine-home {
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Define as colunas do grid. */
+      grid-template-columns: 1.1fr 0.9fr;
+      /* Define o espaço entre os elementos. */
+      gap: 16px;
+      /* Define a altura mínima do elemento. */
+      min-height: 520px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-principal. */
+    .vitrine-principal {
+      /* Define o tipo de posicionamento do elemento. */
+      position: relative;
+      /* Controla o conteúdo que passa do limite. */
+      overflow: hidden;
+      /* Arredonda as bordas. */
+      border-radius: 28px;
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
+      /* Define a altura mínima do elemento. */
+      min-height: 520px;
+      /* Define o cursor do mouse. */
+      cursor: pointer;
+      /* Define o fundo do elemento. */
+      background: #020617;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-principal img. */
+    .vitrine-principal img {
+      /* Define a largura. */
+      width: 100%;
+      /* Define a altura. */
+      height: 100%;
+      /* Ajusta a imagem dentro do espaço disponível. */
+      object-fit: cover;
+      /* Define o modo de exibição do elemento. */
+      display: block;
+      /* Define a transição de efeitos visuais. */
+      transition: 0.35s;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Define a propriedade CSS .vitrine-principal. */
+    .vitrine-principal:hover img,
+    /* Inicia a estilização do seletor .mini-poster:hover img. */
+    .mini-poster:hover img {
+      /* Move ou redimensiona visualmente o elemento. */
+      transform: scale(1.06);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-coluna. */
+    .vitrine-coluna {
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Define as linhas do grid. */
+      grid-template-rows: 1fr 1fr;
+      /* Define o espaço entre os elementos. */
+      gap: 16px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .mini-poster. */
+    .mini-poster {
+      /* Define o tipo de posicionamento do elemento. */
+      position: relative;
+      /* Controla o conteúdo que passa do limite. */
+      overflow: hidden;
+      /* Arredonda as bordas. */
+      border-radius: 24px;
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.34);
+      /* Define o cursor do mouse. */
+      cursor: pointer;
+      /* Define o fundo do elemento. */
+      background: #020617;
+      /* Define a altura mínima do elemento. */
+      min-height: 250px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .mini-poster img. */
+    .mini-poster img {
+      /* Define a largura. */
+      width: 100%;
+      /* Define a altura. */
+      height: 100%;
+      /* Ajusta a imagem dentro do espaço disponível. */
+      object-fit: cover;
+      /* Define o modo de exibição do elemento. */
+      display: block;
+      /* Define a transição de efeitos visuais. */
+      transition: 0.35s;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-info. */
+    .vitrine-info {
+      /* Define o tipo de posicionamento do elemento. */
+      position: absolute;
+      /* Define a posição à esquerda. */
+      left: 0;
+      /* Define a posição à direita. */
+      right: 0;
+      /* Define a posição inferior. */
+      bottom: 0;
+      /* Define o espaçamento interno do elemento. */
+      padding: 18px;
+      /* Define o fundo do elemento. */
+      background: linear-gradient(transparent, rgba(2, 6, 23, 0.96));
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .selo. */
+    .selo {
+      /* Define o modo de exibição do elemento. */
+      display: inline-block;
+      /* Define o espaçamento interno do elemento. */
+      padding: 6px 10px;
+      /* Define o tamanho da fonte. */
+      font-size: 0.78rem;
+      /* Define a espessura da fonte. */
+      font-weight: 700;
+      /* Arredonda as bordas. */
+      border-radius: 999px;
+      /* Define a cor do texto. */
+      color: white;
+      /* Define o fundo do elemento. */
+      background: linear-gradient(135deg, #ef4444, #1d4ed8);
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 10px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-info strong. */
+    .vitrine-info strong {
+      /* Define o modo de exibição do elemento. */
+      display: block;
+      /* Define a cor do texto. */
+      color: white;
+      /* Define o tamanho da fonte. */
+      font-size: 1.05rem;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 4px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-principal .vitrine-info strong. */
+    .vitrine-principal .vitrine-info strong {
+      /* Define o tamanho da fonte. */
+      font-size: 1.45rem;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .vitrine-info span. */
+    .vitrine-info span {
+      /* Define a cor do texto. */
+      color: #cbd5e1;
+      /* Define o tamanho da fonte. */
+      font-size: 0.9rem;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .secao-em-alta. */
+    .secao-em-alta {
+      /* Define a propriedade CSS margin-top. */
+      margin-top: 28px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .topo-secao. */
+    .topo-secao {
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Distribui os elementos no eixo principal. */
+      justify-content: space-between;
+      /* Alinha os elementos no eixo transversal. */
+      align-items: center;
+      /* Define o espaço entre os elementos. */
+      gap: 14px;
+      /* Permite que os itens quebrem linha. */
+      flex-wrap: wrap;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 18px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .topo-secao h2. */
+    .topo-secao h2 {
+      /* Define o tamanho da fonte. */
+      font-size: 1.8rem;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 0;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .form-busca. */
+    .form-busca {
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Define as colunas do grid. */
+      grid-template-columns: 1fr auto;
+      /* Define o espaço entre os elementos. */
+      gap: 12px;
+      /* Define a margem externa do elemento. */
+      margin: 24px 0;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .form-busca input. */
+    .form-busca input {
+      /* Define a largura mínima. */
+      min-width: 220px;
+      /* Define o espaçamento interno do elemento. */
+      padding: 15px 17px;
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Arredonda as bordas. */
+      border-radius: 999px;
+      /* Remove ou define contorno do campo. */
+      outline: none;
+      /* Define o tamanho da fonte. */
+      font-size: 1rem;
+      /* Define a cor do texto. */
+      color: white;
+      /* Define o fundo do elemento. */
+      background: rgba(2, 6, 23, 0.58);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .form-busca input::placeholder. */
+    .form-busca input::placeholder {
+      /* Define a cor do texto. */
+      color: #94a3b8;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .filtros. */
+    .filtros {
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define o espaço entre os elementos. */
+      gap: 10px;
+      /* Permite que os itens quebrem linha. */
+      flex-wrap: wrap;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 26px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .filtro-chip. */
+    .filtro-chip {
+      /* Define a borda do elemento. */
+      border: 1px solid rgba(147, 197, 253, 0.22);
+      /* Define o fundo do elemento. */
+      background: rgba(96, 165, 250, 0.12);
+      /* Define a cor do texto. */
+      color: #dbeafe;
+      /* Define o espaçamento interno do elemento. */
+      padding: 11px 16px;
+      /* Arredonda as bordas. */
+      border-radius: 999px;
+      /* Define o tamanho da fonte. */
+      font-size: 0.94rem;
+      /* Define o cursor do mouse. */
+      cursor: pointer;
+      /* Define a transição de efeitos visuais. */
+      transition: 0.22s;
+      /* Define a espessura da fonte. */
+      font-weight: 700;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Define a propriedade CSS .filtro-chip. */
+    .filtro-chip:hover,
+    /* Inicia a estilização do seletor .filtro-chip.ativo. */
+    .filtro-chip.ativo {
+      /* Define o fundo do elemento. */
+      background: linear-gradient(135deg, #2563eb, #ef4444);
+      /* Define a cor do texto. */
+      color: white;
+      /* Move ou redimensiona visualmente o elemento. */
+      transform: translateY(-2px);
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .grade. */
+    .grade {
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Define as colunas do grid. */
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      /* Define o espaço entre os elementos. */
+      gap: 22px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .grade-home. */
+    .grade-home {
+      /* Define as colunas do grid. */
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .card. */
+    .card {
+      /* Define o tipo de posicionamento do elemento. */
+      position: relative;
+      /* Define o fundo do elemento. */
+      background: rgba(15, 23, 42, 0.92);
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Arredonda as bordas. */
+      border-radius: 24px;
+      /* Controla o conteúdo que passa do limite. */
+      overflow: hidden;
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define a direção dos itens flexíveis. */
+      flex-direction: column;
+      /* Define a transição de efeitos visuais. */
+      transition: 0.25s;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .card:hover. */
+    .card:hover {
+      /* Move ou redimensiona visualmente o elemento. */
+      transform: translateY(-6px);
+      /* Define a propriedade CSS border-color. */
+      border-color: rgba(96, 165, 250, 0.55);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .card img. */
+    .card img {
+      /* Define a largura. */
+      width: 100%;
+      /* Define a altura. */
+      height: 330px;
+      /* Ajusta a imagem dentro do espaço disponível. */
+      object-fit: cover;
+      /* Define o fundo do elemento. */
+      background: #334155;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .grade-home .card img. */
+    .grade-home .card img {
+      /* Define a altura. */
+      height: 270px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .ano-badge. */
+    .ano-badge {
+      /* Define o tipo de posicionamento do elemento. */
+      position: absolute;
+      /* Define a distância em relação ao topo. */
+      top: 13px;
+      /* Define a posição à esquerda. */
+      left: 13px;
+      /* Define o fundo do elemento. */
+      background: rgba(2, 6, 23, 0.84);
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Define a cor do texto. */
+      color: #dbeafe;
+      /* Arredonda as bordas. */
+      border-radius: 999px;
+      /* Define o espaçamento interno do elemento. */
+      padding: 7px 11px;
+      /* Define o tamanho da fonte. */
+      font-size: 0.82rem;
+      /* Define a espessura da fonte. */
+      font-weight: bold;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .card-conteudo. */
+    .card-conteudo {
+      /* Define o espaçamento interno do elemento. */
+      padding: 17px;
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define a direção dos itens flexíveis. */
+      flex-direction: column;
+      /* Define o espaço entre os elementos. */
+      gap: 10px;
+      /* Define como o item ocupa espaço dentro do flexbox. */
+      flex: 1;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .card h3. */
+    .card h3 {
+      /* Define a cor do texto. */
+      color: #eff6ff;
+      /* Define o tamanho da fonte. */
+      font-size: 1.18rem;
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 0;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .generos. */
+    .generos {
+      /* Define o tamanho da fonte. */
+      font-size: 0.9rem;
+      /* Define a cor do texto. */
+      color: #cbd5e1;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .nota. */
+    .nota {
+      /* Define a cor do texto. */
+      color: #fde68a;
+      /* Define a espessura da fonte. */
+      font-weight: bold;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .botoes-card. */
+    .botoes-card {
+      /* Define o modo de exibição do elemento. */
+      display: flex;
+      /* Define o espaço entre os elementos. */
+      gap: 8px;
+      /* Permite que os itens quebrem linha. */
+      flex-wrap: wrap;
+      /* Define a propriedade CSS margin-top. */
+      margin-top: auto;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .botoes-card button. */
+    .botoes-card button {
+      /* Define como o item ocupa espaço dentro do flexbox. */
+      flex: 1;
+      /* Define o espaçamento interno do elemento. */
+      padding: 10px;
+      /* Define o tamanho da fonte. */
+      font-size: 0.85rem;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .detalhes. */
+    .detalhes {
+      /* Define o modo de exibição do elemento. */
+      display: grid;
+      /* Define as colunas do grid. */
+      grid-template-columns: 310px 1fr;
+      /* Define o espaço entre os elementos. */
+      gap: 30px;
+      /* Define o fundo do elemento. */
+      background: rgba(16, 27, 51, 0.9);
+      /* Define a borda do elemento. */
+      border: 1px solid var(--borda);
+      /* Define o espaçamento interno do elemento. */
+      padding: 30px;
+      /* Arredonda as bordas. */
+      border-radius: 28px;
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .detalhes img. */
+    .detalhes img {
+      /* Define a largura. */
+      width: 100%;
+      /* Arredonda as bordas. */
+      border-radius: 22px;
+      /* Aplica sombra no elemento. */
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.38);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .detalhes h2. */
+    .detalhes h2 {
+      /* Define o tamanho da fonte. */
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .detalhes p. */
+    .detalhes p {
+      /* Define a propriedade CSS margin-bottom. */
+      margin-bottom: 11px;
+      /* Define a cor do texto. */
+      color: #e5e7eb;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor .aviso. */
+    .aviso {
+      /* Define o fundo do elemento. */
+      background: rgba(127, 29, 29, 0.85);
+      /* Define a cor do texto. */
+      color: white;
+      /* Define o espaçamento interno do elemento. */
+      padding: 16px;
+      /* Arredonda as bordas. */
+      border-radius: 16px;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor footer. */
+    footer {
+      /* Alinha o texto. */
+      text-align: center;
+      /* Define o espaçamento interno do elemento. */
+      padding: 24px 7%;
+      /* Define a cor do texto. */
+      color: #cbd5e1;
+      /* Define a propriedade CSS border-top. */
+      border-top: 1px solid var(--borda);
+      /* Define a propriedade CSS margin-top. */
+      margin-top: 34px;
+      /* Define o fundo do elemento. */
+      background: rgba(2, 6, 23, 0.55);
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor footer strong. */
+    footer strong {
+      /* Define a cor do texto. */
+      color: #fca5a5;
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor @media (max-width: 950px). */
+    @media (max-width: 950px) {
+      /* Linha de estilo CSS. */
+      .hero,
+      /* Linha de estilo CSS. */
+      .detalhes,
+      /* Inicia a estilização do seletor .vitrine-home. */
+      .vitrine-home {
+        /* Define as colunas do grid. */
+        grid-template-columns: 1fr;
+      /* Finaliza esse bloco de estilização. */
+      }
+
+      /* Inicia a estilização do seletor .vitrine-coluna. */
+      .vitrine-coluna {
+        /* Define as linhas do grid. */
+        grid-template-rows: auto;
+        /* Define as colunas do grid. */
+        grid-template-columns: 1fr 1fr;
+      /* Finaliza esse bloco de estilização. */
+      }
+
+      /* Inicia a estilização do seletor .form-busca. */
+      .form-busca {
+        /* Define as colunas do grid. */
+        grid-template-columns: 1fr;
+      /* Finaliza esse bloco de estilização. */
+      }
+
+      /* Inicia a estilização do seletor header. */
+      header {
+        /* Alinha os elementos no eixo transversal. */
+        align-items: flex-start;
+      /* Finaliza esse bloco de estilização. */
+      }
+    /* Finaliza esse bloco de estilização. */
+    }
+
+    /* Inicia a estilização do seletor @media (max-width: 600px). */
+    @media (max-width: 600px) {
+      /* Inicia a estilização do seletor .vitrine-coluna. */
+      .vitrine-coluna {
+        /* Define as colunas do grid. */
+        grid-template-columns: 1fr;
+      /* Finaliza esse bloco de estilização. */
+      }
+    /* Finaliza esse bloco de estilização. */
+    }
+  /* Linha de estilo CSS. */
+  </style>
+<!-- Finaliza o cabeçalho da página. -->
+</head>
+
+<!-- Inicia o corpo visível do site. -->
+<body>
+  <!-- Inicia o cabeçalho de configurações da página. -->
+  <header>
+    <!-- Cria a área que agrupa o ícone e o nome do site. -->
+    <div class="logo-area">
+      <!-- Exibe o ícone de cinema usado como logotipo. -->
+      <div class="logo">🎬</div>
+      <!-- Cria uma divisão para organizar elementos na tela. -->
+      <div>
+        <!-- Mostra o nome principal do site. -->
+        <h1>CineCatálogo</h1>
+        <!-- Mostra a frase de apresentação abaixo do nome do site. -->
+        <p>Assista seu filme preferido de onde e a hora que você quiser.</p>
+      <!-- Fecha a tag aberta anteriormente. -->
+      </div>
+    <!-- Fecha a tag aberta anteriormente. -->
+    </div>
+
+    <!-- Inicia o menu de navegação com botões. -->
+    <nav>
+      <!-- Cria o botão que leva para a página inicial. -->
+      <button id="btnHome" class="ativo">Home</button>
+      <!-- Cria o botão que abre o catálogo. -->
+      <button id="btnCatalogo">Catálogo</button>
+      <!-- Cria o botão que abre a lista de favoritos. -->
+      <button id="btnFavoritos">Favoritos</button>
+    <!-- Fecha a tag aberta anteriormente. -->
+    </nav>
+  <!-- Finaliza o cabeçalho da página. -->
+  </header>
+
+  <!-- Cria a área principal onde o JavaScript vai carregar o conteúdo. -->
+  <main id="app"></main>
+
+  <!-- Inicia o rodapé do site. -->
+  <footer>
+    <!-- Mostra o crédito com o nome da desenvolvedora. -->
+    <p>Desenvolvido por <strong>Thayná Andrade</strong></p>
+  <!-- Fecha a tag aberta anteriormente. -->
+  </footer>
+
+  <!-- Inicia a área de JavaScript interno, responsável pela interação do site. -->
+  <script>
+    // Seleciona a área principal onde o conteúdo será exibido.
+    const app = document.getElementById("app");
+    // Seleciona um botão do menu pelo seu id.
+    const btnHome = document.getElementById("btnHome");
+    // Seleciona um botão do menu pelo seu id.
+    const btnCatalogo = document.getElementById("btnCatalogo");
+    // Seleciona um botão do menu pelo seu id.
+    const btnFavoritos = document.getElementById("btnFavoritos");
+
+    // Guarda o filtro que está selecionado no momento.
+    let filtroAtual = "todos";
+    // Guarda a lista de obras exibida no catálogo.
+    let listaAtual = [];
+
+    // Cria o array local com filmes e séries do catálogo.
+    const catalogoAtual = [
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 1,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Duna: Parte Dois",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Ficção científica", "Aventura", "Drama"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.6 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Paul Atreides une forças com Chani e os Fremen enquanto busca vingança contra aqueles que destruíram sua família.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2024-02-27"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 2,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Divertida Mente 2",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Animação", "Família", "Comédia"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.0 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Riley entra na adolescência e novas emoções passam a dividir espaço com Alegria, Tristeza, Raiva, Medo e Nojinho.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2024-06-12"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 3,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Oppenheimer",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Drama", "História", "Biografia"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.4 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "A trajetória de J. Robert Oppenheimer e sua participação no desenvolvimento da bomba atômica durante a Segunda Guerra Mundial.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2023-07-19"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 4,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Barbie",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Comédia", "Fantasia", "Aventura"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 7.0 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Barbie deixa a Barbielândia e parte para o mundo real em uma jornada de autoconhecimento.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2023-07-19"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 5,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "The Last of Us",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Série",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Drama", "Ação", "Pós-apocalíptico"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.7 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Joel e Ellie atravessam os Estados Unidos após uma pandemia que destruiu a civilização.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Em exibição",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2023-01-15"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 6,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Wandinha",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Série",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Fantasia", "Mistério", "Comédia"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.1 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/ooBR3qulC40ws0QkYBUAYFKmLRE.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Wandinha Addams investiga mistérios sobrenaturais enquanto estuda na Escola Nunca Mais.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Em exibição",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2022-11-23"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 7,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Round 6",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Série",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Drama", "Suspense", "Sobrevivência"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.0 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Pessoas endividadas participam de jogos mortais em busca de um grande prêmio em dinheiro.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Em exibição",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "Korean",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2021-09-17"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 8,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "House of the Dragon",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Série",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Fantasia", "Drama", "Ação"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.4 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/7QMsOTMUswlwxJP0rTTZfmz2tX2.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "A história da Casa Targaryen, ambientada anos antes dos acontecimentos de Game of Thrones.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Em exibição",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2022-08-21"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 9,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Avatar: O Caminho da Água",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Ficção científica", "Aventura", "Fantasia"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 7.6 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/mbYQLLluS651W89jO7MOZcLSCUw.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Jake Sully vive com sua nova família em Pandora e precisa enfrentar uma antiga ameaça.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2022-12-14"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 10,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Top Gun: Maverick",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Ação", "Drama"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.2 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Maverick retorna para treinar uma nova geração de pilotos em uma missão extremamente perigosa.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2022-05-24"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 11,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Tudo em Todo Lugar ao Mesmo Tempo",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Filme",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Ficção científica", "Comédia", "Drama"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 7.8 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/2t9AbKzN1NQ9Ej5i6Kii48qVJmP.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Uma mulher comum se vê envolvida em uma aventura pelo multiverso para salvar sua família e a realidade.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Lançado",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2022-03-24"
+      // Organiza ou fecha um bloco de dados/código.
+      },
+      // Organiza ou fecha um bloco de dados/código.
+      {
+        // Define uma informação do filme ou série dentro do objeto.
+        id: 12,
+        // Define uma informação do filme ou série dentro do objeto.
+        name: "Ruptura",
+        // Define uma informação do filme ou série dentro do objeto.
+        type: "Série",
+        // Define uma informação do filme ou série dentro do objeto.
+        genres: ["Drama", "Suspense", "Ficção científica"],
+        // Define uma informação do filme ou série dentro do objeto.
+        rating: { average: 8.7 },
+        // Define uma informação do filme ou série dentro do objeto.
+        image: { medium: "https://image.tmdb.org/t/p/w500/lFf6LLrQjYldcZItzOkGmMMigP7.jpg" },
+        // Define uma informação do filme ou série dentro do objeto.
+        summary: "Funcionários de uma empresa passam por um procedimento que separa memórias pessoais e profissionais.",
+        // Define uma informação do filme ou série dentro do objeto.
+        status: "Em exibição",
+        // Define uma informação do filme ou série dentro do objeto.
+        language: "English",
+        // Define uma informação do filme ou série dentro do objeto.
+        premiered: "2022-02-18"
+      // Organiza ou fecha um bloco de dados/código.
+      }
+    // Linha de lógica JavaScript do projeto.
+    ];
+
+    // Cria a classe Obra, usada para padronizar filmes e séries.
+    class Obra {
+      // Método chamado ao criar uma nova obra.
+      constructor(dados) {
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.id = dados.id;
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.nome = dados.name || "Nome não informado";
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.tipo = dados.type || "Série";
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.generos = dados.genres || [];
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.nota = dados.rating?.average || 0;
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.imagem = dados.image?.medium || "https://via.placeholder.com/300x450/101b33/ffffff?text=Sem+Imagem";
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.resumo = dados.summary || "Resumo não disponível.";
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.status = dados.status || "Não informado";
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.idioma = dados.language || "Não informado";
+        // Salva uma informação dentro do objeto criado pela classe.
+        this.estreia = dados.premiered || "Não informada";
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Cria método para remover tags HTML do resumo.
+      resumoLimpo() {
+        // Retorna o resultado dessa função.
+        return this.resumo.replace(/<[^>]*>/g, "");
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Cria método para formatar os gêneros em texto.
+      generosFormatados() {
+        // Retorna o resultado dessa função.
+        return this.generos.length > 0 ? this.generos.join(", ") : "Gênero não informado";
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Cria método para pegar apenas o ano da data de estreia.
+      anoLancamento() {
+        // Retorna o resultado dessa função.
+        return this.estreia && this.estreia !== "Não informada" ? this.estreia.slice(0, 4) : "Ano não informado";
+      // Organiza ou fecha um bloco de dados/código.
+      }
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function filtrarComNota(lista) {
+      // Retorna o resultado dessa função.
+      return lista.filter((obra) => Number(obra.nota) > 0);
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function ordenarPorNota(lista) {
+      // Retorna o resultado dessa função.
+      return [...lista].sort((a, b) => Number(b.nota) - Number(a.nota));
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function limitarLista(lista, limite) {
+      // Retorna o resultado dessa função.
+      return lista.slice(0, limite);
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function salvarFavoritos(favoritos) {
+      // Salva os favoritos no armazenamento local do navegador.
+      localStorage.setItem("cinecatalogo_favoritos_thayna", JSON.stringify(favoritos));
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function buscarFavoritos() {
+      // Retorna o resultado dessa função.
+      return JSON.parse(localStorage.getItem("cinecatalogo_favoritos_thayna")) || [];
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function estaNosFavoritos(id) {
+      // Retorna o resultado dessa função.
+      return buscarFavoritos().some((obra) => Number(obra.id) === Number(id));
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function aplicarFiltro(lista, filtro) {
+      // Verifica uma condição antes de executar o código.
+      if (filtro === "filmes") {
+        // Retorna o resultado dessa função.
+        return lista.filter((obra) => obra.tipo.toLowerCase() === "filme");
+      // Organiza ou fecha um bloco de dados/código.
+      }
+      // Verifica uma condição antes de executar o código.
+      if (filtro === "series") {
+        // Retorna o resultado dessa função.
+        return lista.filter((obra) => obra.tipo.toLowerCase() === "série" || obra.tipo.toLowerCase() === "serie");
+      // Organiza ou fecha um bloco de dados/código.
+      }
+      // Verifica uma condição antes de executar o código.
+      if (filtro === "2020") {
+        // Retorna o resultado dessa função.
+        return lista.filter((obra) => Number(obra.anoLancamento()) >= 2020);
+      // Organiza ou fecha um bloco de dados/código.
+      }
+      // Verifica uma condição antes de executar o código.
+      if (filtro === "favoritos") {
+        // Cria uma variável/constante usada nesta parte do código.
+        const idsFavoritos = buscarFavoritos().map((obra) => Number(obra.id));
+        // Retorna o resultado dessa função.
+        return lista.filter((obra) => idsFavoritos.includes(Number(obra.id)));
+      // Organiza ou fecha um bloco de dados/código.
+      }
+      // Retorna o resultado dessa função.
+      return lista;
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função assíncrona que pode aguardar respostas da API.
+    async function buscarObras(termo) {
+      // Tenta executar um código que pode gerar erro.
+      try {
+        // Faz uma requisição para buscar dados externos.
+        const resposta = await fetch(`https://api.tvmaze.com/search/shows?q=${encodeURIComponent(termo)}`);
+        // Converte a resposta da API para JSON.
+        const dados = await resposta.json();
+        // Cria uma variável/constante usada nesta parte do código.
+        const resultadosApi = dados.map((item) => new Obra(item.show));
+        // Cria uma variável/constante usada nesta parte do código.
+        const resultadosFiltrados = resultadosApi.filter((obra) => Number(obra.anoLancamento()) >= 2020);
+
+        // Verifica uma condição antes de executar o código.
+        if (resultadosFiltrados.length === 0) {
+          // Retorna o resultado dessa função.
+          return catalogoAtual
+            // Transforma os itens de uma lista em novos valores.
+            .map((item) => new Obra(item))
+            // Filtra itens de uma lista de acordo com uma condição.
+            .filter((obra) => obra.nome.toLowerCase().includes(termo.toLowerCase()));
+        // Organiza ou fecha um bloco de dados/código.
+        }
+        // Retorna o resultado dessa função.
+        return resultadosFiltrados;
+      // Linha de lógica JavaScript do projeto.
+      } catch (erro) {
+        // Mostra o erro no console para facilitar a correção.
+        console.error("Erro na API. Usando catálogo local.", erro);
+        // Retorna o resultado dessa função.
+        return catalogoAtual
+          // Transforma os itens de uma lista em novos valores.
+          .map((item) => new Obra(item))
+          // Filtra itens de uma lista de acordo com uma condição.
+          .filter((obra) => obra.nome.toLowerCase().includes(termo.toLowerCase()));
+      // Organiza ou fecha um bloco de dados/código.
+      }
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função assíncrona que pode aguardar respostas da API.
+    async function buscarCatalogoInicial() {
+      // Retorna o resultado dessa função.
+      return catalogoAtual.map((item) => new Obra(item));
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função assíncrona que pode aguardar respostas da API.
+    async function buscarObraPorId(id) {
+      // Cria uma variável/constante usada nesta parte do código.
+      const local = catalogoAtual.find((item) => Number(item.id) === Number(id));
+      // Verifica uma condição antes de executar o código.
+      if (local) return new Obra(local);
+
+      // Tenta executar um código que pode gerar erro.
+      try {
+        // Faz uma requisição para buscar dados externos.
+        const resposta = await fetch(`https://api.tvmaze.com/shows/${id}`);
+        // Converte a resposta da API para JSON.
+        const dados = await resposta.json();
+        // Retorna o resultado dessa função.
+        return new Obra(dados);
+      // Linha de lógica JavaScript do projeto.
+      } catch (erro) {
+        // Retorna o resultado dessa função.
+        return null;
+      // Organiza ou fecha um bloco de dados/código.
+      }
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function marcarMenuAtivo(botaoAtivo) {
+      // Percorre todos os itens de uma lista.
+      [btnHome, btnCatalogo, btnFavoritos].forEach((botao) => botao.classList.remove("ativo"));
+      // Linha de lógica JavaScript do projeto.
+      botaoAtivo.classList.add("ativo");
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function renderizarHome() {
+      // Linha de lógica JavaScript do projeto.
+      marcarMenuAtivo(btnHome);
+      // Altera o conteúdo exibido dentro da área principal.
+      app.innerHTML = "";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const hero = document.createElement("section");
+      // Define a classe CSS do elemento criado.
+      hero.className = "hero";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const bloco1 = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      bloco1.className = "caixa hero-principal";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const tag = document.createElement("span");
+      // Define a classe CSS do elemento criado.
+      tag.className = "tag";
+      // Define o texto visível do elemento.
+      tag.textContent = "Filmes e séries recentes";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const titulo = document.createElement("h2");
+      // Define o texto visível do elemento.
+      titulo.textContent = "Seu catálogo moderno para descobrir novas histórias";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const texto = document.createElement("p");
+      // Define o texto visível do elemento.
+      texto.textContent = "Explore produções lançadas a partir de 2020, veja detalhes, pesquise por título e salve seus favoritos em uma interface dinâmica.";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const acoes = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      acoes.className = "hero-acoes";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const botaoCatalogo = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      botaoCatalogo.className = "btn-vermelho";
+      // Define o texto visível do elemento.
+      botaoCatalogo.textContent = "Explorar catálogo";
+      // Define o que acontece quando o usuário clica no elemento.
+      botaoCatalogo.onclick = renderizarCatalogo;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const botaoFavoritos = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      botaoFavoritos.className = "btn-neutro";
+      // Define o texto visível do elemento.
+      botaoFavoritos.textContent = "Ver favoritos";
+      // Define o que acontece quando o usuário clica no elemento.
+      botaoFavoritos.onclick = renderizarFavoritos;
+
+      // Adiciona um elemento dentro de outro na página.
+      acoes.appendChild(botaoCatalogo);
+      // Adiciona um elemento dentro de outro na página.
+      acoes.appendChild(botaoFavoritos);
+
+      // Adiciona um elemento dentro de outro na página.
+      bloco1.appendChild(tag);
+      // Adiciona um elemento dentro de outro na página.
+      bloco1.appendChild(titulo);
+      // Adiciona um elemento dentro de outro na página.
+      bloco1.appendChild(texto);
+      // Adiciona um elemento dentro de outro na página.
+      bloco1.appendChild(acoes);
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const vitrine = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      vitrine.className = "vitrine-home";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const destaquePrincipal = new Obra(catalogoAtual[0]);
+      // Cria uma variável/constante usada nesta parte do código.
+      const serieDestaque = new Obra(catalogoAtual[4]);
+      // Cria uma variável/constante usada nesta parte do código.
+      const animacaoDestaque = new Obra(catalogoAtual[1]);
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const principal = document.createElement("article");
+      // Define a classe CSS do elemento criado.
+      principal.className = "vitrine-principal";
+      // Define o que acontece quando o usuário clica no elemento.
+      principal.onclick = () => renderizarDetalhes(destaquePrincipal.id);
+      // Insere conteúdo HTML dentro do elemento.
+      principal.innerHTML = `
+        <img src="${destaquePrincipal.imagem}" alt="${destaquePrincipal.nome}">
+        <div class="vitrine-info">
+          <span class="selo">Destaque principal</span>
+          <strong>${destaquePrincipal.nome}</strong>
+          <span>${destaquePrincipal.tipo} • ${destaquePrincipal.anoLancamento()} • ★ ${destaquePrincipal.nota}</span>
+        </div>
+      `;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const coluna = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      coluna.className = "vitrine-coluna";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const mini1 = document.createElement("article");
+      // Define a classe CSS do elemento criado.
+      mini1.className = "mini-poster";
+      // Define o que acontece quando o usuário clica no elemento.
+      mini1.onclick = () => renderizarDetalhes(serieDestaque.id);
+      // Insere conteúdo HTML dentro do elemento.
+      mini1.innerHTML = `
+        <img src="${serieDestaque.imagem}" alt="${serieDestaque.nome}">
+        <div class="vitrine-info">
+          <span class="selo">Série em alta</span>
+          <strong>${serieDestaque.nome}</strong>
+          <span>${serieDestaque.tipo} • ${serieDestaque.anoLancamento()} • ★ ${serieDestaque.nota}</span>
+        </div>
+      `;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const mini2 = document.createElement("article");
+      // Define a classe CSS do elemento criado.
+      mini2.className = "mini-poster";
+      // Define o que acontece quando o usuário clica no elemento.
+      mini2.onclick = () => renderizarDetalhes(animacaoDestaque.id);
+      // Insere conteúdo HTML dentro do elemento.
+      mini2.innerHTML = `
+        <img src="${animacaoDestaque.imagem}" alt="${animacaoDestaque.nome}">
+        <div class="vitrine-info">
+          <span class="selo">Para toda família</span>
+          <strong>${animacaoDestaque.nome}</strong>
+          <span>${animacaoDestaque.tipo} • ${animacaoDestaque.anoLancamento()} • ★ ${animacaoDestaque.nota}</span>
+        </div>
+      `;
+
+      // Adiciona um elemento dentro de outro na página.
+      coluna.appendChild(mini1);
+      // Adiciona um elemento dentro de outro na página.
+      coluna.appendChild(mini2);
+
+      // Adiciona um elemento dentro de outro na página.
+      vitrine.appendChild(principal);
+      // Adiciona um elemento dentro de outro na página.
+      vitrine.appendChild(coluna);
+
+      // Adiciona um elemento dentro de outro na página.
+      hero.appendChild(bloco1);
+      // Adiciona um elemento dentro de outro na página.
+      hero.appendChild(vitrine);
+      // Adiciona um elemento dentro de outro na página.
+      app.appendChild(hero);
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const secaoAlta = document.createElement("section");
+      // Define a classe CSS do elemento criado.
+      secaoAlta.className = "caixa secao-em-alta";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const topo = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      topo.className = "topo-secao";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const tituloAlta = document.createElement("h2");
+      // Define o texto visível do elemento.
+      tituloAlta.textContent = "Em destaque";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const botaoVerTudo = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      botaoVerTudo.className = "btn-azul";
+      // Define o texto visível do elemento.
+      botaoVerTudo.textContent = "Ver catálogo completo";
+      // Define o que acontece quando o usuário clica no elemento.
+      botaoVerTudo.onclick = renderizarCatalogo;
+
+      // Adiciona um elemento dentro de outro na página.
+      topo.appendChild(tituloAlta);
+      // Adiciona um elemento dentro de outro na página.
+      topo.appendChild(botaoVerTudo);
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const grade = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      grade.className = "grade grade-home";
+
+      // Percorre todos os itens de uma lista.
+      limitarLista(ordenarPorNota(catalogoAtual.map((item) => new Obra(item))), 4).forEach((obra) => {
+        // Adiciona um elemento dentro de outro na página.
+        grade.appendChild(criarCard(obra));
+      // Linha de lógica JavaScript do projeto.
+      });
+
+      // Adiciona um elemento dentro de outro na página.
+      secaoAlta.appendChild(topo);
+      // Adiciona um elemento dentro de outro na página.
+      secaoAlta.appendChild(grade);
+      // Adiciona um elemento dentro de outro na página.
+      app.appendChild(secaoAlta);
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função assíncrona que pode aguardar respostas da API.
+    async function renderizarCatalogo() {
+      // Linha de lógica JavaScript do projeto.
+      marcarMenuAtivo(btnCatalogo);
+      // Linha de lógica JavaScript do projeto.
+      filtroAtual = "todos";
+      // Altera o conteúdo exibido dentro da área principal.
+      app.innerHTML = "";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const secao = document.createElement("section");
+      // Define a classe CSS do elemento criado.
+      secao.className = "caixa";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const titulo = document.createElement("h2");
+      // Define o texto visível do elemento.
+      titulo.textContent = "Catálogo atual";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const texto = document.createElement("p");
+      // Define o texto visível do elemento.
+      texto.textContent = "Escolha uma produção recente, pesquise novos títulos ou filtre as opções abaixo.";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const form = document.createElement("form");
+      // Define a classe CSS do elemento criado.
+      form.className = "form-busca";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const input = document.createElement("input");
+      // Linha de lógica JavaScript do projeto.
+      input.type = "text";
+      // Define uma informação do filme ou série dentro do objeto.
+      input.placeholder = "Pesquise séries recentes. Ex: The Last of Us, Wednesday, House...";
+      // Linha de lógica JavaScript do projeto.
+      input.required = true;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const botao = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      botao.className = "btn-azul";
+      // Linha de lógica JavaScript do projeto.
+      botao.type = "submit";
+      // Define o texto visível do elemento.
+      botao.textContent = "Buscar";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const filtros = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      filtros.className = "filtros";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const opcoesFiltro = [
+        // Organiza ou fecha um bloco de dados/código.
+        { nome: "Filmes", valor: "filmes" },
+        // Organiza ou fecha um bloco de dados/código.
+        { nome: "Séries", valor: "series" },
+        // Organiza ou fecha um bloco de dados/código.
+        { nome: "2020+", valor: "2020" },
+        // Organiza ou fecha um bloco de dados/código.
+        { nome: "Favoritos locais", valor: "favoritos" },
+        // Organiza ou fecha um bloco de dados/código.
+        { nome: "API pública", valor: "api" }
+      // Linha de lógica JavaScript do projeto.
+      ];
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const grade = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      grade.className = "grade";
+
+      // Percorre todos os itens de uma lista.
+      opcoesFiltro.forEach((opcao) => {
+        // Cria uma variável/constante usada nesta parte do código.
+        const chip = document.createElement("button");
+        // Linha de lógica JavaScript do projeto.
+        chip.type = "button";
+        // Define a classe CSS do elemento criado.
+        chip.className = "filtro-chip";
+        // Define o texto visível do elemento.
+        chip.textContent = opcao.nome;
+
+        // Define o que acontece quando o usuário clica no elemento.
+        chip.onclick = async function() {
+          // Percorre todos os itens de uma lista.
+          document.querySelectorAll(".filtro-chip").forEach((item) => item.classList.remove("ativo"));
+          // Linha de lógica JavaScript do projeto.
+          chip.classList.add("ativo");
+
+          // Verifica uma condição antes de executar o código.
+          if (opcao.valor === "api") {
+            // Linha de lógica JavaScript do projeto.
+            input.value = "2024";
+            // Cria uma variável/constante usada nesta parte do código.
+            const resultadoApi = await buscarObras("2024");
+            // Linha de lógica JavaScript do projeto.
+            listaAtual = resultadoApi;
+            // Linha de lógica JavaScript do projeto.
+            exibirLista(listaAtual, grade, "todos");
+            // Linha de lógica JavaScript do projeto.
+            return;
+          // Organiza ou fecha um bloco de dados/código.
+          }
+
+          // Linha de lógica JavaScript do projeto.
+          filtroAtual = opcao.valor;
+          // Linha de lógica JavaScript do projeto.
+          exibirLista(listaAtual, grade, filtroAtual);
+        // Organiza ou fecha um bloco de dados/código.
+        };
+
+        // Adiciona um elemento dentro de outro na página.
+        filtros.appendChild(chip);
+      // Linha de lógica JavaScript do projeto.
+      });
+
+      // Adiciona um elemento dentro de outro na página.
+      form.appendChild(input);
+      // Adiciona um elemento dentro de outro na página.
+      form.appendChild(botao);
+
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(titulo);
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(texto);
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(form);
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(filtros);
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(grade);
+      // Adiciona um elemento dentro de outro na página.
+      app.appendChild(secao);
+
+      // Linha de lógica JavaScript do projeto.
+      listaAtual = await buscarCatalogoInicial();
+      // Linha de lógica JavaScript do projeto.
+      exibirLista(listaAtual, grade, "todos");
+
+      // Linha de lógica JavaScript do projeto.
+      form.onsubmit = async function(evento) {
+        // Linha de lógica JavaScript do projeto.
+        evento.preventDefault();
+        // Insere conteúdo HTML dentro do elemento.
+        grade.innerHTML = "";
+        // Cria uma variável/constante usada nesta parte do código.
+        const termo = input.value.trim();
+
+        // Linha de lógica JavaScript do projeto.
+        listaAtual = await buscarObras(termo);
+        // Linha de lógica JavaScript do projeto.
+        filtroAtual = "todos";
+        // Percorre todos os itens de uma lista.
+        document.querySelectorAll(".filtro-chip").forEach((item) => item.classList.remove("ativo"));
+        // Linha de lógica JavaScript do projeto.
+        exibirLista(listaAtual, grade, filtroAtual);
+      // Organiza ou fecha um bloco de dados/código.
+      };
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function exibirLista(lista, grade, filtro) {
+      // Insere conteúdo HTML dentro do elemento.
+      grade.innerHTML = "";
+      // Cria uma variável/constante usada nesta parte do código.
+      const filtradas = aplicarFiltro(lista, filtro);
+      // Cria uma variável/constante usada nesta parte do código.
+      const obras = limitarLista(ordenarPorNota(filtradas), 16);
+
+      // Verifica uma condição antes de executar o código.
+      if (obras.length === 0) {
+        // Cria uma variável/constante usada nesta parte do código.
+        const aviso = document.createElement("p");
+        // Define a classe CSS do elemento criado.
+        aviso.className = "aviso";
+        // Define o texto visível do elemento.
+        aviso.textContent = "Nenhum resultado encontrado para esse filtro.";
+        // Adiciona um elemento dentro de outro na página.
+        grade.appendChild(aviso);
+        // Linha de lógica JavaScript do projeto.
+        return;
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Percorre todos os itens de uma lista.
+      obras.forEach((obra) => {
+        // Adiciona um elemento dentro de outro na página.
+        grade.appendChild(criarCard(obra));
+      // Linha de lógica JavaScript do projeto.
+      });
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function criarCard(obra) {
+      // Cria uma variável/constante usada nesta parte do código.
+      const card = document.createElement("article");
+      // Define a classe CSS do elemento criado.
+      card.className = "card";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const img = document.createElement("img");
+      // Linha de lógica JavaScript do projeto.
+      img.src = obra.imagem;
+      // Linha de lógica JavaScript do projeto.
+      img.alt = obra.nome;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const ano = document.createElement("span");
+      // Define a classe CSS do elemento criado.
+      ano.className = "ano-badge";
+      // Define o texto visível do elemento.
+      ano.textContent = `${obra.tipo} • ${obra.anoLancamento()}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const conteudo = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      conteudo.className = "card-conteudo";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const titulo = document.createElement("h3");
+      // Define o texto visível do elemento.
+      titulo.textContent = obra.nome;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const generos = document.createElement("p");
+      // Define a classe CSS do elemento criado.
+      generos.className = "generos";
+      // Define o texto visível do elemento.
+      generos.textContent = obra.generosFormatados();
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const nota = document.createElement("p");
+      // Define a classe CSS do elemento criado.
+      nota.className = "nota";
+      // Define o texto visível do elemento.
+      nota.textContent = `★ ${obra.nota || "sem nota"}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const botoes = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      botoes.className = "botoes-card";
+
+      // Seleciona um botão do menu pelo seu id.
+      const btnDetalhes = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      btnDetalhes.className = "btn-azul";
+      // Define o texto visível do elemento.
+      btnDetalhes.textContent = "Detalhes";
+      // Define o que acontece quando o usuário clica no elemento.
+      btnDetalhes.onclick = () => renderizarDetalhes(obra.id);
+
+      // Seleciona um botão do menu pelo seu id.
+      const btnFavorito = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      btnFavorito.className = "btn-vermelho";
+      // Define uma informação do filme ou série dentro do objeto.
+      btnFavorito.textContent = estaNosFavoritos(obra.id) ? "Favoritado" : "Favoritar";
+      // Define o que acontece quando o usuário clica no elemento.
+      btnFavorito.onclick = () => adicionarFavorito(obra);
+
+      // Adiciona um elemento dentro de outro na página.
+      botoes.appendChild(btnDetalhes);
+      // Adiciona um elemento dentro de outro na página.
+      botoes.appendChild(btnFavorito);
+
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(titulo);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(generos);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(nota);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(botoes);
+
+      // Adiciona um elemento dentro de outro na página.
+      card.appendChild(img);
+      // Adiciona um elemento dentro de outro na página.
+      card.appendChild(ano);
+      // Adiciona um elemento dentro de outro na página.
+      card.appendChild(conteudo);
+
+      // Retorna o resultado dessa função.
+      return card;
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function adicionarFavorito(obra) {
+      // Verifica uma condição antes de executar o código.
+      if (estaNosFavoritos(obra.id)) {
+        // Mostra uma mensagem de alerta para o usuário.
+        alert("Essa obra já está nos favoritos.");
+        // Linha de lógica JavaScript do projeto.
+        return;
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const favoritos = buscarFavoritos();
+      // Linha de lógica JavaScript do projeto.
+      favoritos.push(obra);
+      // Linha de lógica JavaScript do projeto.
+      salvarFavoritos(favoritos);
+      // Mostra uma mensagem de alerta para o usuário.
+      alert("Adicionado aos favoritos!");
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função assíncrona que pode aguardar respostas da API.
+    async function renderizarDetalhes(id) {
+      // Altera o conteúdo exibido dentro da área principal.
+      app.innerHTML = "<p class='aviso'>Carregando detalhes...</p>";
+      // Cria uma variável/constante usada nesta parte do código.
+      const obra = await buscarObraPorId(id);
+
+      // Verifica uma condição antes de executar o código.
+      if (!obra) {
+        // Altera o conteúdo exibido dentro da área principal.
+        app.innerHTML = "<p class='aviso'>Não foi possível carregar os detalhes.</p>";
+        // Linha de lógica JavaScript do projeto.
+        return;
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Altera o conteúdo exibido dentro da área principal.
+      app.innerHTML = "";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const secao = document.createElement("section");
+      // Define a classe CSS do elemento criado.
+      secao.className = "detalhes";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const img = document.createElement("img");
+      // Linha de lógica JavaScript do projeto.
+      img.src = obra.imagem;
+      // Linha de lógica JavaScript do projeto.
+      img.alt = obra.nome;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const conteudo = document.createElement("div");
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const tag = document.createElement("span");
+      // Define a classe CSS do elemento criado.
+      tag.className = "tag";
+      // Define o texto visível do elemento.
+      tag.textContent = `${obra.tipo} • ${obra.anoLancamento()}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const titulo = document.createElement("h2");
+      // Define o texto visível do elemento.
+      titulo.textContent = obra.nome;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const resumo = document.createElement("p");
+      // Define o texto visível do elemento.
+      resumo.textContent = obra.resumoLimpo();
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const generos = document.createElement("p");
+      // Define uma informação do filme ou série dentro do objeto.
+      generos.innerHTML = `<strong>Gêneros:</strong> ${obra.generosFormatados()}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const nota = document.createElement("p");
+      // Define uma informação do filme ou série dentro do objeto.
+      nota.innerHTML = `<strong>Nota:</strong> ${obra.nota || "Sem nota"}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const status = document.createElement("p");
+      // Define uma informação do filme ou série dentro do objeto.
+      status.innerHTML = `<strong>Status:</strong> ${obra.status}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const idioma = document.createElement("p");
+      // Define uma informação do filme ou série dentro do objeto.
+      idioma.innerHTML = `<strong>Idioma:</strong> ${obra.idioma}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const estreia = document.createElement("p");
+      // Define uma informação do filme ou série dentro do objeto.
+      estreia.innerHTML = `<strong>Estreia:</strong> ${obra.estreia}`;
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const voltar = document.createElement("button");
+      // Define a classe CSS do elemento criado.
+      voltar.className = "btn-vermelho";
+      // Define o texto visível do elemento.
+      voltar.textContent = "Voltar ao catálogo";
+      // Define o que acontece quando o usuário clica no elemento.
+      voltar.onclick = renderizarCatalogo;
+
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(tag);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(titulo);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(resumo);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(generos);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(nota);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(status);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(idioma);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(estreia);
+      // Adiciona um elemento dentro de outro na página.
+      conteudo.appendChild(voltar);
+
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(img);
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(conteudo);
+      // Adiciona um elemento dentro de outro na página.
+      app.appendChild(secao);
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function renderizarFavoritos() {
+      // Linha de lógica JavaScript do projeto.
+      marcarMenuAtivo(btnFavoritos);
+      // Altera o conteúdo exibido dentro da área principal.
+      app.innerHTML = "";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const secao = document.createElement("section");
+      // Define a classe CSS do elemento criado.
+      secao.className = "caixa";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const titulo = document.createElement("h2");
+      // Define o texto visível do elemento.
+      titulo.textContent = "Minha lista de favoritos";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const grade = document.createElement("div");
+      // Define a classe CSS do elemento criado.
+      grade.className = "grade";
+
+      // Cria uma variável/constante usada nesta parte do código.
+      const favoritos = buscarFavoritos().map((item) => new Obra(item));
+
+      // Verifica uma condição antes de executar o código.
+      if (favoritos.length === 0) {
+        // Cria uma variável/constante usada nesta parte do código.
+        const aviso = document.createElement("p");
+        // Define a classe CSS do elemento criado.
+        aviso.className = "aviso";
+        // Define o texto visível do elemento.
+        aviso.textContent = "Você ainda não adicionou nenhum favorito.";
+        // Adiciona um elemento dentro de outro na página.
+        grade.appendChild(aviso);
+      // Linha de lógica JavaScript do projeto.
+      } else {
+        // Percorre todos os itens de uma lista.
+        favoritos.forEach((obra) => {
+          // Cria uma variável/constante usada nesta parte do código.
+          const card = criarCard(obra);
+
+          // Seleciona um botão do menu pelo seu id.
+          const btnRemover = document.createElement("button");
+          // Define a classe CSS do elemento criado.
+          btnRemover.className = "btn-neutro";
+          // Define o texto visível do elemento.
+          btnRemover.textContent = "Remover";
+          // Define o que acontece quando o usuário clica no elemento.
+          btnRemover.onclick = () => removerFavorito(obra.id);
+
+          // Adiciona um elemento dentro de outro na página.
+          card.querySelector(".botoes-card").appendChild(btnRemover);
+          // Adiciona um elemento dentro de outro na página.
+          grade.appendChild(card);
+        // Linha de lógica JavaScript do projeto.
+        });
+      // Organiza ou fecha um bloco de dados/código.
+      }
+
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(titulo);
+      // Adiciona um elemento dentro de outro na página.
+      secao.appendChild(grade);
+      // Adiciona um elemento dentro de outro na página.
+      app.appendChild(secao);
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Cria uma função usada pelo site.
+    function removerFavorito(id) {
+      // Cria uma variável/constante usada nesta parte do código.
+      const favoritosAtualizados = buscarFavoritos().filter((obra) => Number(obra.id) !== Number(id));
+      // Linha de lógica JavaScript do projeto.
+      salvarFavoritos(favoritosAtualizados);
+      // Linha de lógica JavaScript do projeto.
+      renderizarFavoritos();
+    // Organiza ou fecha um bloco de dados/código.
+    }
+
+    // Define o que acontece quando o usuário clica no elemento.
+    btnHome.onclick = renderizarHome;
+    // Define o que acontece quando o usuário clica no elemento.
+    btnCatalogo.onclick = renderizarCatalogo;
+    // Define o que acontece quando o usuário clica no elemento.
+    btnFavoritos.onclick = renderizarFavoritos;
+
+    // Carrega a página inicial assim que o site abre.
+    renderizarHome();
+  // Linha de lógica JavaScript do projeto.
+  </script>
+<!-- Finaliza o corpo da página. -->
+</body>
+<!-- Finaliza o documento HTML. -->
+</html>
