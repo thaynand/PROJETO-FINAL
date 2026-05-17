@@ -1,0 +1,1 @@
+// Manipulação da DOM incorporada no index.html.
