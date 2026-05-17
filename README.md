@@ -1,4 +1,4 @@
-##CinePlay
+## CinePlay
 Site de catálogo de filmes desenvolvido como projeto final, utilizando HTML, CSS, JavaScript, Fetch API, DOM, eventos, arrays, objetos e classe.
 
 ##Descrição
